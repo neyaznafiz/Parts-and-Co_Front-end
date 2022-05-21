@@ -14,7 +14,7 @@ const Signup = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth)
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -63,32 +63,32 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="text" name='name' id="form3Example1c" className="form-control border text-white" />
                                                         <label className="form-label text-white " htmlFor="form3Example1c">Your Name</label>
+                                                        <input type="text" name='name' id="form3Example1c" className="form-control border text-white" required />
                                                     </div>
                                                 </div>
 
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="email" name='email' id="form3Example3c" className="form-control border text-white" />
                                                         <label className="form-label text-white bg-inherit" htmlFor="form3Example3c">Your Email</label>
+                                                        <input type="email" name='email' id="form3Example3c" className="form-control border text-white" required />
                                                     </div>
                                                 </div>
 
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="password" name='password' id="form3Example4c" className="form-control border text-white" />
                                                         <label className="form-label text-white" htmlFor="form3Example4c">Password</label>
+                                                        <input type="password" name='password' id="form3Example4c" className="form-control border text-white" required />
                                                     </div>
                                                 </div>
 
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="password" name='confirm-password' id="form3Example4cd" className="form-control border text-white" />
                                                         <label className="form-label text-white" htmlFor="form3Example4cd">Confirm password</label>
+                                                        <input type="password" name='confirm-password' id="form3Example4cd" className="form-control border text-white" required />
                                                     </div>
                                                 </div>
 
