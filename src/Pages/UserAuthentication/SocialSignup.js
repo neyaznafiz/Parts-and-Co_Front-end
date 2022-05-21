@@ -5,6 +5,8 @@ import { SiFacebook } from 'react-icons/si';
 import auth from '../../Firebase/firebase.init'
 import { useSignInWithFacebook, useSignInWithGoogle, useSignInWithTwitter } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Loading from '../../Components/Shared/Loading';
 
 
 const SocialSignup = () => {
@@ -17,8 +19,18 @@ const SocialSignup = () => {
     const location = useLocation()
     let from = location?.state?.from?.pathname || '/'
 
+    if(googleError || facebookError || twitterError){
+        toast.error(<>{googleError?.message}, {facebookError?.message}, {twitterError}</>)
+    }
+
+    if(googleLoading || facebookLoading || twitterLoading){
+        return <Loading></Loading>
+    }
+
     if (GoogleUser || facebookUser || twitterUser) {
         navigate(from, { replace: true })
+
+        toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature of our website.')
     }
 
     return (

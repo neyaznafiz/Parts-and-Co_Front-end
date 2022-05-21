@@ -1,10 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Pages/Home/Home'
 import About from './Pages/About'
 import Login from './Pages/UserAuthentication/Login'
 import Signup from './Pages/UserAuthentication/Signup'
 import NotFound from './Components/NotFound';
+
 
 function App() {
   return (
@@ -21,6 +25,8 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
 
       </Routes>
+
+      <ToastContainer />
 
     </div>
   );
