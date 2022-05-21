@@ -1,9 +1,9 @@
 // import React from 'react';
-// import { signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
-// import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-// import auth from '../../../Firebase/firebase.init';
+import auth from '../../Firebase/firebase.init';
 // import logo from '../../../Images/logo.png'
 import { FiHome } from 'react-icons/fi';
 import { MdOutlineInventory2 } from 'react-icons/md';
@@ -17,13 +17,13 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { MdOutlineDoubleArrow } from "react-icons/md";
 
 const Navbar = () => {
-    // const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth)
 
     const [open, setOpen] = useState(false)
 
-    // const handleSignOut = () => {
-    //     signOut(auth)
-    // }
+    const handleSignOut = () => {
+        signOut(auth)
+    }
 
 
     return (
@@ -82,7 +82,7 @@ const Navbar = () => {
                         </Link>
                      
 
-                        {/* {!user ? */}
+                        {!user ?
 
                        <Link to='/login' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
                             <span className='flex items-center'> <HiOutlineLogout className='text-2xl' /> <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>LOGIN</span> </span>
@@ -91,9 +91,9 @@ const Navbar = () => {
                         :
 
                         <Link to='/' className={`text-yellow-600 text-lg  flex items-center gap-x-4 cursor-pointer p-2 hover:text-yellow-700`}>
-                            <span /* onClick={handleSignOut} */ className='flex items-center'> <HiOutlineLogin className='text-2xl' />   <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>LOG OUT</span> </span>
+                            <span  onClick={handleSignOut}  className='flex items-center'> <HiOutlineLogin className='text-2xl' />   <span className={`${!open && "hidden"} origin-left duration-300 pl-3`}>LOG OUT</span> </span>
                         </Link>
-                        {/* } */}
+                        } 
 
                         {/* <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">Theam</button> */}
 
