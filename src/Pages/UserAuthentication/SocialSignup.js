@@ -2,13 +2,19 @@ import React from 'react';
 import { CgGoogle } from 'react-icons/cg';
 import { IoLogoTwitter } from 'react-icons/io';
 import { SiFacebook } from 'react-icons/si';
+import auth from '../../Firebase/firebase.init'
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+
 
 const SocialSignup = () => {
+
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth)
+
     return (
         <div>
 
             {/* google */}
-            <button type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
+            <button onClick={() => signInWithGoogle()} type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
                 <CgGoogle className='text-3xl'></CgGoogle>
             </button>
 
