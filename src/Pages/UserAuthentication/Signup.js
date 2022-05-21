@@ -1,9 +1,43 @@
 import React from 'react';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Signupbg from '../../Asstes/Signupbg.jpg'
+import Loading from '../../Components/Shared/Loading';
+import auth from '../../Firebase/firebase.init';
 import SocialSignup from './SocialSignup';
 
 const Signup = () => {
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth)
+
+    if(error){
+        toast.error(<p>Error: {error.message}</p>)
+    }
+
+    if(loading){
+        return <Loading></Loading>
+    }
+
+    if(user){
+        toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature of our website.')
+    }
+
+    const handleSignup = event => {
+        event.preventDefault()
+
+        const email = event.target.email.value
+        const password = event.target.password.value
+
+        createUserWithEmailAndPassword(email, password)
+
+    }
+
     return (
         <div className='w-full'>
 
@@ -18,12 +52,12 @@ const Signup = () => {
 
                                             <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4">Sign up</p>
 
-                                            <form className="mx-1 mx-md-4">
+                                            <form onSubmit={handleSignup} className="mx-1 mx-md-4">
 
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="text" id="form3Example1c" className="form-control border text-white" />
+                                                        <input type="text" name='name' id="form3Example1c" className="form-control border text-white" />
                                                         <label className="form-label text-white " htmlFor="form3Example1c">Your Name</label>
                                                     </div>
                                                 </div>
@@ -31,7 +65,7 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="email" id="form3Example3c" className="form-control border text-white" />
+                                                        <input type="email" name='email' id="form3Example3c" className="form-control border text-white" />
                                                         <label className="form-label text-white bg-inherit" htmlFor="form3Example3c">Your Email</label>
                                                     </div>
                                                 </div>
@@ -39,7 +73,7 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="password" id="form3Example4c" className="form-control border text-white" />
+                                                        <input type="password" name='password' id="form3Example4c" className="form-control border text-white" />
                                                         <label className="form-label text-white" htmlFor="form3Example4c">Password</label>
                                                     </div>
                                                 </div>
@@ -47,22 +81,22 @@ const Signup = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="password" id="form3Example4cd" className="form-control border text-white" />
+                                                        <input type="password" name='confirm-password' id="form3Example4cd" className="form-control border text-white" />
                                                         <label className="form-label text-white" htmlFor="form3Example4cd">Confirm password</label>
                                                     </div>
                                                 </div>
 
 
                                                 <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                    <button type="button" className="border px-3 py-1 rounded-md hover:bg-white hover:text-black">Sign Up</button>
+                                                    <button type="submit" className="border px-3 py-1 rounded-md hover:bg-white hover:text-black">Sign Up</button>
                                                 </div>
 
 
-                                                
-                                                    <div className='text-center'>
-                                                        <p className='lg:pr-1'>Already have an account ? <Link to='/login'> Log In</Link> </p>
-                                                    </div>
-                                                
+
+                                                <div className='text-center'>
+                                                    <p className='lg:pr-1'>Already have an account ? <Link to='/login'> Log In</Link> </p>
+                                                </div>
+
 
                                             </form>
 
@@ -76,7 +110,7 @@ const Signup = () => {
                                 <div className=''>
 
                                     <div className='grid justify-center'>
-                                    <SocialSignup></SocialSignup>
+                                        <SocialSignup></SocialSignup>
                                     </div>
 
                                     <span class="flex items-center mt-2 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
