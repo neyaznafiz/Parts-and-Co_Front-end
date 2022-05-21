@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Signupbg from '../../Asstes/Signupbg.jpg'
 import Loading from '../../Components/Shared/Loading';
@@ -16,6 +16,11 @@ const Signup = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth)
 
+    const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+
+
     if(error){
         toast.error(<p>Error: {error.message}</p>)
     }
@@ -25,6 +30,7 @@ const Signup = () => {
     }
 
     if(user){
+        navigate(from, { replace: true });
         toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature of our website.')
     }
 
