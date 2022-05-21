@@ -3,12 +3,23 @@ import { CgGoogle } from 'react-icons/cg';
 import { IoLogoTwitter } from 'react-icons/io';
 import { SiFacebook } from 'react-icons/si';
 import auth from '../../Firebase/firebase.init'
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithFacebook, useSignInWithGoogle, useSignInWithTwitter } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const SocialSignup = () => {
 
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth)
+    const [signInWithGoogle, GoogleUser, googleLoading, googleError] = useSignInWithGoogle(auth)
+    const [signInWithTwitter, twitterUser, twitterLoading, twitterError] = useSignInWithTwitter(auth);
+    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    let from = location?.state?.from?.pathname || '/'
+
+    if (GoogleUser || facebookUser || twitterUser) {
+        navigate(from, { replace: true })
+    }
 
     return (
         <div>
@@ -19,12 +30,12 @@ const SocialSignup = () => {
             </button>
 
             {/* <!-- Facebook --> */}
-            <button type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
+            <button onClick={() => signInWithFacebook()} type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
                 <SiFacebook className='text-3xl'></SiFacebook>
             </button>
 
             {/* twitter */}
-            <button type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
+            <button onClick={() => signInWithTwitter()} type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
                 <IoLogoTwitter className='text-3xl'></IoLogoTwitter>
             </button>
 
