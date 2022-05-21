@@ -25,16 +25,16 @@ const Login = () => {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="email" id="form3Example3c" className="form-control border text-white" />
                                                         <label className="form-label text-white bg-inherit" htmlFor="form3Example3c">Your Email</label>
+                                                        <input type="email" id="form3Example3c" className="form-control border text-white" />
                                                     </div>
                                                 </div>
 
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="password" id="form3Example4c" className="form-control border text-white" />
                                                         <label className="form-label text-white" htmlFor="form3Example4c">Password</label>
+                                                        <input type="password" id="form3Example4c" className="form-control border text-white" />
                                                     </div>
                                                 </div>
 
@@ -68,7 +68,7 @@ const Login = () => {
                                         <SocialSignup></SocialSignup>
                                     </div>
 
-                                    <span class="flex items-center mt-2 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+                                    <span className="flex items-center mt-2 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                                     </span>
                                 </div>
 

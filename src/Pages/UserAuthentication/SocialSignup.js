@@ -37,17 +37,17 @@ const SocialSignup = () => {
         <div>
 
             {/* google */}
-            <button onClick={() => signInWithGoogle()} type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
+            <button onClick={() => signInWithGoogle()} type="button" data-mdb-ripple-color="light" className="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
                 <CgGoogle className='text-3xl'></CgGoogle>
             </button>
 
             {/* <!-- Facebook --> */}
-            <button onClick={() => signInWithFacebook()} type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
+            <button onClick={() => signInWithFacebook()} type="button" data-mdb-ripple-color="light" className="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
                 <SiFacebook className='text-3xl'></SiFacebook>
             </button>
 
             {/* twitter */}
-            <button onClick={() => signInWithTwitter()} type="button" data-mdb-ripple-color="light" class="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
+            <button onClick={() => signInWithTwitter()} type="button" data-mdb-ripple-color="light" className="p-2 text-white rounded-full hover:bg-black hover:shadow-lg focus:outline-none focus:ring-0 active:bg-white transition duration-150 ease-in-out mx-2 border">
                 <IoLogoTwitter className='text-3xl'></IoLogoTwitter>
             </button>
 

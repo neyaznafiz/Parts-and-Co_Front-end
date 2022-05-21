@@ -16,20 +16,21 @@ const Signup = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
 
+
     const navigate = useNavigate()
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
 
 
-    if(error){
+    if (error) {
         toast.error(<p>Error: {error.message}</p>)
     }
 
-    if(loading){
+    if (loading) {
         return <Loading></Loading>
     }
 
-    if(user){
+    if (user) {
         navigate(from, { replace: true });
         toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature of our website.')
     }
@@ -119,7 +120,7 @@ const Signup = () => {
                                         <SocialSignup></SocialSignup>
                                     </div>
 
-                                    <span class="flex items-center mt-2 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+                                    <span className="flex items-center mt-2 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                                     </span>
                                 </div>
 
