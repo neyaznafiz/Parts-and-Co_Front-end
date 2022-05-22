@@ -58,7 +58,7 @@ const Login = () => {
                                                 <div className="form-control w-full bg-transparent border-0 ">
                                                 <label className="form-label text-white bg-inherit" >Your Email</label>
                                                     <input type="email"
-                                                        className="input input-bordered bg-transparent border"
+                                                        className="input input-bordered bg-transparent border text-white"
                                                         {...register("email", {
                                                             required: {
                                                                 value: true,
@@ -79,7 +79,7 @@ const Login = () => {
                                                 <div className="form-control w-full bg-transparent border-0">
                                                 <label className="form-label text-white">Password</label>
                                                     <input type="password"
-                                                        className="input input-bordered  bg-transparent border"
+                                                        className="input input-bordered  bg-transparent border text-white"
                                                         {...register("password", {
                                                             required: {
                                                                 value: true,

@@ -8,17 +8,22 @@ import About from './Pages/About'
 import Login from './Pages/UserAuthentication/Login'
 import Signup from './Pages/UserAuthentication/Signup'
 import NotFound from './Components/NotFound';
+import MyPortfolio from './Pages/MyPortfolio';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 
 function App() {
   return (
     <div className='flex'>
 
-      <Navbar></Navbar>
+      <Navbar> 
+
 
       <Routes>
 
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
@@ -28,6 +33,7 @@ function App() {
 
       <ToastContainer />
 
+      </Navbar>
     </div>
   );
 }
