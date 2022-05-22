@@ -1,12 +1,14 @@
 // import React from 'react';
 import { signOut } from 'firebase/auth';
-import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../Firebase/firebase.init';
+import useAdmin from '../../Hooks/useAdmin';
 
 const Navbar = ({ children }) => {
     const [user] = useAuthState(auth)
+
+    const [admin] = useAdmin()
 
     const handleSignOut = () => {
         signOut(auth)
@@ -35,9 +37,11 @@ const Navbar = ({ children }) => {
                             <li>
                                 <Link to='/' className='rounded font-semibold hover:text-stone-800'>HOME</Link>
                             </li>
-                            <li>
-                                <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
-                            </li>
+                            {admin && (
+                                <li>
+                                    <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
+                                </li>
+                            )}
                             <li>
                                 <Link to='/blog' className='rounded font-semibold hover:text-stone-800'>BLOG</Link>
                             </li>
