@@ -24,7 +24,7 @@ const BusinessSummary = () => {
                 </div>
 
                 <div class="stat">
-                    <div class="stat-title text-xl font-semibold flex">New Coustomes <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
+                    <div class="stat-title text-xl font-semibold flex">New Coustomers <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
 
                     <CountUp
                         start={2500}
