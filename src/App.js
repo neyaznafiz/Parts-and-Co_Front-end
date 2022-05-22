@@ -11,6 +11,7 @@ import NotFound from './Components/NotFound';
 import MyPortfolio from './Pages/MyPortfolio';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Blog from './Pages/Blog';
+import MyOrders from './Pages/Dashboard/MyOrders';
 
 
 function App() {
@@ -23,7 +24,11 @@ function App() {
       <Routes>
 
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+
+        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+          <Route path='/dashboard/myorders' element={<MyOrders></MyOrders>} ></Route>
+       </Route>
+
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
