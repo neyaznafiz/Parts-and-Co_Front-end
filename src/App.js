@@ -12,33 +12,35 @@ import MyPortfolio from './Pages/MyPortfolio';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Blog from './Pages/Blog';
 import MyOrders from './Pages/Dashboard/MyOrders';
+import PrivateRoute from './Routes/PrivateRoute';
 
 
 function App() {
   return (
     <div className='flex'>
 
-      <Navbar> 
+      <Navbar>
 
 
-      <Routes>
+        <Routes>
 
-        <Route path='/' element={<Home></Home>}></Route>
+          <Route path='/' element={<Home></Home>}></Route>
 
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
-          <Route path='/dashboard/myorders' element={<MyOrders></MyOrders>} ></Route>
-       </Route>
+          {/* private route */}
+          <Route element={<PrivateRoute></PrivateRoute>}>
+            <Route path='/dashboard' element={<Dashboard></Dashboard>} ></Route>
+          </Route>
 
-        <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/about' element={<About></About>}></Route>
-        <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
-        <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/signup' element={<Signup></Signup>}></Route>
-        <Route path='*' element={<NotFound></NotFound>}></Route>
+          <Route path='/blog' element={<Blog></Blog>}></Route>
+          <Route path='/about' element={<About></About>}></Route>
+          <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+          <Route path='/login' element={<Login></Login>}></Route>
+          <Route path='/signup' element={<Signup></Signup>}></Route>
+          <Route path='*' element={<NotFound></NotFound>}></Route>
 
-      </Routes>
+        </Routes>
 
-      <ToastContainer />
+        <ToastContainer />
 
       </Navbar>
     </div>
