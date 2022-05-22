@@ -15,21 +15,21 @@ const Navbar = ({ children }) => {
 
     return (
 
-        <div class="drawer drawer-end">
-            <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content flex flex-col">
+        <div className="drawer drawer-end">
+            <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
-                <div class="w-full navbar bg-base-300 px-10">
-                    <Link to='/' class="flex-1 px-2 mx-2 font-semibold text-3xl hover:text-stone-800">Parts & Co.</Link>
+                <div className="w-full navbar bg-base-300 px-10">
+                    <Link to='/' className="flex-1 px-2 mx-2 font-semibold text-3xl hover:text-stone-800">Parts & Co.</Link>
                     
-                    <div class="flex-none lg:hidden">
-                        <label for="my-drawer-3" class="btn  btn-ghost shadow-none ">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <div className="flex-none lg:hidden">
+                        <label for="my-drawer-3" className="btn  btn-ghost shadow-none ">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
 
-                    <div class="flex-none hidden lg:block">
-                        <ul class="menu menu-horizontal">
+                    <div className="flex-none hidden lg:block">
+                        <ul className="menu menu-horizontal">
                             {/* <!-- Navbar menu content here --> */}
 
                             <li>
@@ -37,6 +37,9 @@ const Navbar = ({ children }) => {
                             </li>
                             <li>
                                 <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
+                            </li>
+                            <li>
+                                <Link to='/blog' className='rounded font-semibold hover:text-stone-800'>BLOG</Link>
                             </li>
                             <li>
                                 <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
@@ -63,15 +66,18 @@ const Navbar = ({ children }) => {
                 {/* <!-- Page content here --> */}
                 {children}
             </div>
-            <div class="drawer-side">
-                <label for="my-drawer-3" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
+            <div className="drawer-side">
+                <label for="my-drawer-3" className="drawer-overlay"></label>
+                <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
                     {/* <!-- Sidebar content here --> */}
                     <li>
                                 <Link to='/' className='rounded font-semibold hover:text-stone-800'>HOME</Link>
                             </li>
                             <li>
                                 <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
+                            </li>
+                            <li>
+                                <Link to='/blog' className='rounded font-semibold hover:text-stone-800'>BLOG</Link>
                             </li>
                             <li>
                                 <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
@@ -165,7 +171,7 @@ const Navbar = ({ children }) => {
         //                 </Link>
         //                 } 
 
-        //                 {/* <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">Theam</button> */}
+        //                 {/* <button data-toggle-theme="dark,light" data-act-className="ACTIVECLASS">Theam</button> */}
 
         //             </nav>
 

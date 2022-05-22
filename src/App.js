@@ -10,6 +10,7 @@ import Signup from './Pages/UserAuthentication/Signup'
 import NotFound from './Components/NotFound';
 import MyPortfolio from './Pages/MyPortfolio';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Blog from './Pages/Blog';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
