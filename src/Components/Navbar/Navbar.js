@@ -51,7 +51,7 @@ const Navbar = ({ children }) => {
                             </li>
                             {user && (
                                 <li>
-                                    <Link to='/dashboard/myorders' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
+                                    <Link to='/dashboard/myprofile' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
                                 </li>
                             )}
                             <li>

@@ -14,6 +14,8 @@ import Blog from './Pages/Blog';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import PrivateRoute from './Routes/PrivateRoute';
 import AddProduct from './Pages/Dashboard/AddProduct';
+import MyProfile from './Pages/Dashboard/MyProfile';
+import AddaReview from './Pages/Dashboard/AddaReview';
 
 
 function App() {
@@ -30,8 +32,10 @@ function App() {
           {/* private route */}
           <Route element={<PrivateRoute></PrivateRoute>}>
             <Route path='/dashboard/' element={<Dashboard></Dashboard>} >
+              <Route path='myprofile' element={<MyProfile></MyProfile>} ></Route>
               <Route path='myorders' element={<MyOrders></MyOrders>} ></Route>
               <Route path='addproduct' element={<AddProduct></AddProduct>} ></Route>
+              <Route path='addareview' element={<AddaReview></AddaReview>} ></Route>
             </Route>
           </Route>
 
