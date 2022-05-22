@@ -7,10 +7,10 @@ const BusinessSummary = () => {
     return (
         <div className='bg-stone-500 py-20 flex justify-center'>
 
-            <div class="stats stats-vertical lg:stats-horizontal shadow bg-stone-300 lg:h-60 lg:w-full lg:mx-44">
+            <div className="stats stats-vertical lg:stats-horizontal shadow bg-stone-300 lg:h-60 lg:w-full lg:mx-44">
 
-                <div class="stat">
-                    <div class="stat-title text-xl font-semibold flex">Coustomers <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
+                <div className="stat">
+                    <div className="stat-title text-xl font-semibold flex">Coustomers <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
 
                     <CountUp
                         start={33}
@@ -20,11 +20,11 @@ const BusinessSummary = () => {
                         className='text-stone-800 text-4xl font-bold'
                     ></CountUp>
 
-                    <div class="stat-desc text-xl">2012 - 2022</div>
+                    <div className="stat-desc text-xl">2012 - 2022</div>
                 </div>
 
-                <div class="stat">
-                    <div class="stat-title text-xl font-semibold flex">New Coustomers <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
+                <div className="stat">
+                    <div className="stat-title text-xl font-semibold flex">New Coustomers <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
 
                     <CountUp
                         start={2500}
@@ -34,11 +34,11 @@ const BusinessSummary = () => {
                         className='text-stone-800 text-4xl font-bold'
                     ></CountUp>
 
-                    <div class="stat-desc  text-xl">↗︎ 400 (22%)</div>
+                    <div className="stat-desc  text-xl">↗︎ 400 (22%)</div>
                 </div>
 
-                <div class="stat">
-                    <div class="stat-title text-xl font-semibold flex">Reviews <MdRateReview className='mt-2 ml-2 text-xl'/> </div>
+                <div className="stat">
+                    <div className="stat-title text-xl font-semibold flex">Reviews <MdRateReview className='mt-2 ml-2 text-xl'/> </div>
 
                     <CountUp
                         start={38999}
@@ -48,7 +48,7 @@ const BusinessSummary = () => {
                         className='text-stone-800 text-4xl font-bold'
                     ></CountUp>
 
-                    <div class="stat-desc text-xl">↗︎ Throw your feedback </div>
+                    <div className="stat-desc text-xl">↗︎ Throw your feedback </div>
                 </div>
 
             </div>
