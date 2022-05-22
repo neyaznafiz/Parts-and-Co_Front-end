@@ -31,7 +31,7 @@ function App() {
 
           {/* private route */}
           <Route element={<PrivateRoute></PrivateRoute>}>
-            <Route path='/dashboard/' element={<Dashboard></Dashboard>} >
+            <Route path='/dashboard' element={<Dashboard></Dashboard>} >
               <Route path='myprofile' element={<MyProfile></MyProfile>} ></Route>
               <Route path='myorders' element={<MyOrders></MyOrders>} ></Route>
               <Route path='addproduct' element={<AddProduct></AddProduct>} ></Route>
