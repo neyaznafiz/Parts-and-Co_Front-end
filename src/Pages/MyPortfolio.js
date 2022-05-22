@@ -3,6 +3,7 @@ import myimg from '../Asstes/Images/myimg.jpeg'
 import projectone from '../Asstes/Images/projectone.png'
 import projecttwo from '../Asstes/Images/projecttwo.png'
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import Footer from '../Components/Shared/Footer';
 
 const MyPortfolio = () => {
     return (
@@ -76,6 +77,8 @@ const MyPortfolio = () => {
                 </div>
 
             </div>
+
+            <Footer></Footer>
 
         </div>
     );

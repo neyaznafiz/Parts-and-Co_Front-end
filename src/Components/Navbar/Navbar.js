@@ -39,10 +39,10 @@ const Navbar = ({ children }) => {
                                 <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
                             </li>
                             <li>
-                                <Link to='/myportfolio' className='rounded font-semibold hover:text-stone-800'>MY PORTFOLIO</Link>
+                                <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
                             </li>
                             <li>
-                                <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
+                                <Link to='/myportfolio' className='rounded font-semibold hover:text-stone-800'>MY PORTFOLIO</Link>
                             </li>
 
                             <li>
@@ -74,10 +74,10 @@ const Navbar = ({ children }) => {
                                 <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
                             </li>
                             <li>
-                                <Link to='/myportfolio' className='rounded font-semibold hover:text-stone-800'>MY PORTFOLIO</Link>
+                                <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
                             </li>
                             <li>
-                                <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
+                                <Link to='/myportfolio' className='rounded font-semibold hover:text-stone-800'>MY PORTFOLIO</Link>
                             </li>
 
                             <li>
