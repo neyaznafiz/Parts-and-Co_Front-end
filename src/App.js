@@ -13,6 +13,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Blog from './Pages/Blog';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import PrivateRoute from './Routes/PrivateRoute';
+import AddProduct from './Pages/Dashboard/AddProduct';
 
 
 function App() {
@@ -28,7 +29,10 @@ function App() {
 
           {/* private route */}
           <Route element={<PrivateRoute></PrivateRoute>}>
-            <Route path='/dashboard' element={<Dashboard></Dashboard>} ></Route>
+            <Route path='/dashboard/' element={<Dashboard></Dashboard>} >
+              <Route path='myorders' element={<MyOrders></MyOrders>} ></Route>
+              <Route path='addproduct' element={<AddProduct></AddProduct>} ></Route>
+            </Route>
           </Route>
 
           <Route path='/blog' element={<Blog></Blog>}></Route>

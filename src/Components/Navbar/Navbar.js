@@ -1,7 +1,7 @@
 // import React from 'react';
 import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import auth from '../../Firebase/firebase.init';
 import useAdmin from '../../Hooks/useAdmin';
 
@@ -9,6 +9,7 @@ const Navbar = ({ children }) => {
     const [user] = useAuthState(auth)
 
     const [admin] = useAdmin()
+    const { pathname } = useLocation()
 
     const handleSignOut = () => {
         signOut(auth)
@@ -22,10 +23,21 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
                 <div className="w-full navbar bg-base-300 px-10">
+
+                    {/* dashboard drawer button */}
+                    {pathname.includes('dashboard') && (
+
+                        <label htmlFor="dashboard-drawer" tabindex="0" class="btn btn-ghost shadow-none lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        </label>
+                    )}
+
+
+
                     <Link to='/' className="flex-1 px-2 mx-2 font-semibold text-3xl hover:text-stone-800">Parts & Co.</Link>
 
                     <div className="flex-none lg:hidden">
-                        <label htmlFor="my-drawer-3" className="btn  btn-ghost shadow-none ">
+                        <label htmlFor="my-drawer-3" className="btn  btn-ghost shadow-none">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
@@ -37,9 +49,9 @@ const Navbar = ({ children }) => {
                             <li>
                                 <Link to='/' className='rounded font-semibold hover:text-stone-800'>HOME</Link>
                             </li>
-                            {admin && (
+                            {user && (
                                 <li>
-                                    <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
+                                    <Link to='/dashboard/myorders' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
                                 </li>
                             )}
                             <li>
