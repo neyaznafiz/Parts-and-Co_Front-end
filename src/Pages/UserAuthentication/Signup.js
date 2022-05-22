@@ -1,5 +1,7 @@
+import { async } from '@firebase/util';
 import React from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Signupbg from '../../Asstes/Signupbg.jpg'
@@ -9,6 +11,8 @@ import SocialSignup from './SocialSignup';
 
 const Signup = () => {
 
+    const { register, formState: { errors }, handleSubmit } = useForm()
+
     const [
         createUserWithEmailAndPassword,
         user,
@@ -16,10 +20,12 @@ const Signup = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
 
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth)
+
 
     const navigate = useNavigate()
     const location = useLocation()
-    let from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname || "/"
 
 
     if (error) {
@@ -35,13 +41,12 @@ const Signup = () => {
         toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature of our website.')
     }
 
-    const handleSignup = event => {
-        event.preventDefault()
+    const handleSignup = async data => {
 
-        const email = event.target.email.value
-        const password = event.target.password.value
-
-        createUserWithEmailAndPassword(email, password)
+     await createUserWithEmailAndPassword(data.email, data.password)
+     await updateProfile({ displayName: data.name })
+     toast.success('Your profile was updated')
+        console.log('update done')
 
     }
 
@@ -59,51 +64,79 @@ const Signup = () => {
 
                                             <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4">Sign up</p>
 
-                                            <form onSubmit={handleSignup} className="mx-1 mx-md-4">
+                                            <form onSubmit={handleSubmit(handleSignup)}>
 
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label text-white " htmlFor="form3Example1c">Your Name</label>
-                                                        <input type="text" name='name' id="form3Example1c" className="form-control border text-white" required />
-                                                    </div>
+                                                {/* name */}
+                                                <div className="form-control w-full bg-transparent border-0">
+                                                    <label className="form-label text-white ">Your Name</label>
+                                                    <input type="text"
+                                                        className="input input-bordered w-full bg-transparent border text-white"
+                                                        {...register("name", {
+                                                            required: {
+                                                                value: true,
+                                                                message: 'Name is Required'
+                                                            }
+                                                        })} />
+                                                    <label className="label">
+                                                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                                    </label>
+
                                                 </div>
 
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label text-white bg-inherit" htmlFor="form3Example3c">Your Email</label>
-                                                        <input type="email" name='email' id="form3Example3c" className="form-control border text-white" required />
-                                                    </div>
+                                                {/* email */}
+                                                <div className="form-control w-full bg-transparent border-0">
+                                                    <label className="form-label text-white bg-inherit">Your Email</label>
+                                                    <input type="email"
+                                                        placeholder="Your Email"
+                                                        className="input input-bordered w-full bg-transparent border text-white"
+                                                        {...register("email", {
+                                                            required: {
+                                                                value: true,
+                                                                message: 'Email is Required'
+                                                            },
+                                                            pattern: {
+                                                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                                message: 'Provide a valid email please'
+                                                            }
+                                                        })} />
+                                                    <label className="label">
+                                                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                                    </label>
+
                                                 </div>
 
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label text-white" htmlFor="form3Example4c">Password</label>
-                                                        <input type="password" name='password' id="form3Example4c" className="form-control border text-white" required />
-                                                    </div>
-                                                </div>
+                                                {/* password */}
+                                                <div className="form-control w-full bg-transparent border-0">
+                                                <label className="form-label text-white">Password</label>
+                                                    <input type="password"
+                                                        placeholder="Password"
+                                                        className="input input-bordered w-full bg-transparent border text-white"
+                                                        {...register("password", {
+                                                            required: {
+                                                                value: true,
+                                                                message: 'Password is Required'
+                                                            },
+                                                            minLength: {
+                                                                value: 6,
+                                                                message: 'Must be 6 characters or longer'
+                                                            }
+                                                        })} />
+                                                    <label className="label">
+                                                        {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                                    </label>
 
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label text-white" htmlFor="form3Example4cd">Confirm password</label>
-                                                        <input type="password" name='confirm-password' id="form3Example4cd" className="form-control border text-white" required />
-                                                    </div>
                                                 </div>
-
 
                                                 <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                    <button type="submit" className="border px-3 py-1 rounded-md hover:bg-white hover:text-black">Sign Up</button>
+                                                    <input type="submit" value='Sign Up' className="border px-3 py-1 rounded-md hover:bg-white hover:text-black" />
                                                 </div>
-
 
 
                                                 <div className='text-center'>
                                                     <p className='lg:pr-1'>Already have an account ? <Link to='/login'> Log In</Link> </p>
                                                 </div>
-
 
                                             </form>
 

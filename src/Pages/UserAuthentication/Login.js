@@ -1,9 +1,44 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Signupbg from '../../Asstes/Signupbg.jpg'
 import SocialSignup from './SocialSignup';
+import { useForm } from "react-hook-form";
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/firebase.init';
+import { toast } from 'react-toastify';
+import Loading from '../../Components/Shared/Loading';
 
 const Login = () => {
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth)
+
+    const { register, formState: { errors }, handleSubmit } = useForm()
+
+    let navigate = useNavigate()
+    let location = useLocation()
+    let from = location.state?.from?.pathname || "/"
+
+    if (error) {
+        toast.error(<p>Error: {error.message}</p>)
+    }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    if(user){
+        navigate(from, { replace: true })
+    }
+
+    const handleLogin = data => {
+        signInWithEmailAndPassword(data.email, data.password)
+    }
+
     return (
         <div className='w-full'>
 
@@ -18,24 +53,47 @@ const Login = () => {
 
                                             <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4">Log In</p>
 
-                                            <form className="mx-1 mx-md-4">
+                                            <form onSubmit={handleSubmit(handleLogin)}>
 
+                                                <div className="form-control w-full bg-transparent border-0 ">
+                                                <label className="form-label text-white bg-inherit" >Your Email</label>
+                                                    <input type="email"
+                                                        className="input input-bordered bg-transparent border"
+                                                        {...register("email", {
+                                                            required: {
+                                                                value: true,
+                                                                message: 'Email is Required'
+                                                            },
+                                                            pattern: {
+                                                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                                message: 'Provide a valid email please'
+                                                            }
+                                                        })} />
+                                                    <label className="label">
+                                                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                                    </label>
 
-
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label text-white bg-inherit" htmlFor="form3Example3c">Your Email</label>
-                                                        <input type="email" id="form3Example3c" className="form-control border text-white" />
-                                                    </div>
                                                 </div>
 
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label text-white" htmlFor="form3Example4c">Password</label>
-                                                        <input type="password" id="form3Example4c" className="form-control border text-white" />
-                                                    </div>
+                                                <div className="form-control w-full bg-transparent border-0">
+                                                <label className="form-label text-white">Password</label>
+                                                    <input type="password"
+                                                        className="input input-bordered  bg-transparent border"
+                                                        {...register("password", {
+                                                            required: {
+                                                                value: true,
+                                                                message: 'Password is Required'
+                                                            },
+                                                            minLength: {
+                                                                value: 6,
+                                                                message: 'Must be 6 characters or longer'
+                                                            }
+                                                        })} />
+                                                    <label className="label">
+                                                        {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                                    </label>
                                                 </div>
 
                                                 <div className="grid lg:flex flex-row justify-center lg:justify-between align-items-center mb-4">
@@ -44,21 +102,16 @@ const Login = () => {
                                                     </div>
 
                                                     <div>
-                                                        <p className='lg:pr-1'>Are you new here ? <Link to='/signup'>Sign Up</Link> </p>
+                                                        <p className='lg:pr-3'>Are you new here ? <Link to='/signup'>Sign Up</Link> </p>
                                                     </div>
                                                 </div>
 
-
                                                 <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                    <button type="button" className="border px-3 py-1 rounded-md hover:bg-white hover:text-black">Log In</button>
+                                                    <input type="submit" value='log In' className="border px-3 py-1 rounded-md hover:bg-white hover:text-black" />
                                                 </div>
-
                                             </form>
 
                                         </div>
-
-
-
                                     </div>
                                 </div>
 
