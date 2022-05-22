@@ -1,5 +1,7 @@
 import React from 'react';
 import CountUp from 'react-countup';
+import { IoIosPeople } from 'react-icons/io';
+import { MdRateReview } from 'react-icons/md';
 
 const BusinessSummary = () => {
     return (
@@ -8,7 +10,7 @@ const BusinessSummary = () => {
             <div class="stats stats-vertical lg:stats-horizontal shadow bg-stone-300 lg:h-60 lg:w-full lg:mx-44">
 
                 <div class="stat">
-                    <div class="stat-title text-xl font-semibold">Coustomers</div>
+                    <div class="stat-title text-xl font-semibold flex">Coustomers <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
 
                     <CountUp
                         start={33}
@@ -22,7 +24,7 @@ const BusinessSummary = () => {
                 </div>
 
                 <div class="stat">
-                    <div class="stat-title text-xl font-semibold">New Coustomes</div>
+                    <div class="stat-title text-xl font-semibold flex">New Coustomes <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
 
                     <CountUp
                         start={2500}
@@ -36,7 +38,7 @@ const BusinessSummary = () => {
                 </div>
 
                 <div class="stat">
-                    <div class="stat-title text-xl font-semibold">Reviews</div>
+                    <div class="stat-title text-xl font-semibold flex">Reviews <MdRateReview className='mt-2 ml-2 text-xl'/> </div>
 
                     <CountUp
                         start={38999}
