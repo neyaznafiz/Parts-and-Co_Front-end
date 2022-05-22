@@ -11,9 +11,10 @@ const BusinessSummary = () => {
                     <div class="stat-title text-xl font-semibold">Coustomers</div>
 
                     <CountUp
-                        start={25000}
-                        end={310566}
-                        duration={3}
+                        start={33}
+                        end={36}
+                        duration={4}
+                        suffix="K"
                         className='text-stone-800 text-4xl font-bold'
                     ></CountUp>
 
@@ -22,11 +23,12 @@ const BusinessSummary = () => {
 
                 <div class="stat">
                     <div class="stat-title text-xl font-semibold">New Coustomes</div>
-                    
+
                     <CountUp
                         start={2500}
                         end={4246}
                         duration={3}
+                        suffix="K"
                         className='text-stone-800 text-4xl font-bold'
                     ></CountUp>
 
@@ -35,11 +37,12 @@ const BusinessSummary = () => {
 
                 <div class="stat">
                     <div class="stat-title text-xl font-semibold">Reviews</div>
-                    
+
                     <CountUp
                         start={38999}
                         end={53563}
                         duration={3}
+                        suffix="K"
                         className='text-stone-800 text-4xl font-bold'
                     ></CountUp>
 
