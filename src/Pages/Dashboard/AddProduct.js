@@ -9,14 +9,10 @@ const AddProduct = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-
     const { data: product, isLoading } = useQuery('product', () => fetch('http://localhost:5000/product').then(res => res.json()))
 
     const imageStorageKey = 'da7a354ac5b93a961b8fece49f261619'
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
 
     const handleAddProduct =  data => {
         console.log(data);
@@ -62,6 +58,10 @@ const AddProduct = () => {
                         })
                     }
         })
+
+        if (isLoading) {
+            return <Loading></Loading>
+        }
     }
 
     return (

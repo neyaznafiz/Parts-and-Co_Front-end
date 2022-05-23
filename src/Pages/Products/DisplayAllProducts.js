@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const DisplayAllProducts = ({ product }) => {
 
-    const { name, price, description, quantity, img } = product
+    const { _id, name, price, description, quantity, img } = product
+
+    
+    const navigate = useNavigate()
+    const navigateToPurchase = id => {
+        navigate(`/purchase/${_id}`)
+    }
 
     return (
         <div className=''>
@@ -21,7 +28,7 @@ const DisplayAllProducts = ({ product }) => {
                         <p className='font-semibold text-stone-700'>Quantity: {quantity}</p>
                     </div>
 
-                    <input type="submit" value='ADD TO ORDER' className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" />
+                    <button onClick={()=> navigateToPurchase(_id)} className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" > PURCHASE </button>
 
                 </div>
             </div>

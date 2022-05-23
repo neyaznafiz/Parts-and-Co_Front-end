@@ -18,6 +18,7 @@ import MyProfile from './Pages/Dashboard/MyProfile';
 import AddaReview from './Pages/Dashboard/AddaReview';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AllProducts from './Pages/Products/AllProducts';
+import Purchase from './Pages/Purchase';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
 
           {/* private route */}
           <Route element={<PrivateRoute></PrivateRoute>}>
+
             <Route path='/dashboard' element={<Dashboard></Dashboard>} >
               <Route path='myprofile' element={<MyProfile></MyProfile>} ></Route>
               <Route path='myorders' element={<MyOrders></MyOrders>} ></Route>
@@ -41,6 +43,9 @@ function App() {
               <Route path='addproduct' element={<AddProduct></AddProduct>} ></Route>
               <Route path='addareview' element={<AddaReview></AddaReview>} ></Route>
             </Route>
+
+            <Route path='/purchase' element={<Purchase />} ></Route>
+            <Route path='/purchase/:Id' element={<Purchase />} ></Route>
           </Route>
 
           <Route path='/blog' element={<Blog></Blog>}></Route>

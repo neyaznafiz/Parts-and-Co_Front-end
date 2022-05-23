@@ -94,15 +94,23 @@ const Navbar = ({ children }) => {
                     <li>
                         <Link to='/' className='rounded font-semibold hover:text-stone-800'>HOME</Link>
                     </li>
+
+                    <li>
+                        <Link to='/allproducts' className='rounded font-semibold hover:text-stone-800'>ALL PRODUCTS</Link>
+                    </li>
+
                     <li>
                         <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
                     </li>
+
                     <li>
                         <Link to='/blog' className='rounded font-semibold hover:text-stone-800'>BLOG</Link>
                     </li>
+
                     <li>
                         <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
                     </li>
+
                     <li>
                         <Link to='/myportfolio' className='rounded font-semibold hover:text-stone-800'>MY PORTFOLIO</Link>
                     </li>
