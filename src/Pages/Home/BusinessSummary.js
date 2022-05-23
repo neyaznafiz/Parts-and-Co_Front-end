@@ -5,7 +5,7 @@ import { MdRateReview } from 'react-icons/md';
 
 const BusinessSummary = () => {
     return (
-        <div className='bg-stone-500 py-20 flex justify-center'>
+        <div className='bg-stone-400 py-20 flex justify-center'>
 
             <div className="stats stats-vertical lg:stats-horizontal shadow bg-stone-300 lg:h-60 lg:w-full lg:mx-44">
 
