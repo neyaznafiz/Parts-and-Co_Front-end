@@ -17,6 +17,7 @@ import AddProduct from './Pages/Dashboard/AddProduct';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import AddaReview from './Pages/Dashboard/AddaReview';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+import AllProducts from './Pages/Products/AllProducts';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Home></Home>}></Route>
+          <Route path='/allproducts' element={<AllProducts></AllProducts>}></Route>
 
           {/* private route */}
           <Route element={<PrivateRoute></PrivateRoute>}>

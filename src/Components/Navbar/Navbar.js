@@ -49,6 +49,11 @@ const Navbar = ({ children }) => {
                             <li>
                                 <Link to='/' className='rounded font-semibold hover:text-stone-800'>HOME</Link>
                             </li>
+
+                            <li>
+                                <Link to='/allproducts' className='rounded font-semibold hover:text-stone-800'>ALL PRODUCTS</Link>
+                            </li>
+
                             {user && (
                                 <li>
                                     <Link to='/dashboard/myprofile' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>

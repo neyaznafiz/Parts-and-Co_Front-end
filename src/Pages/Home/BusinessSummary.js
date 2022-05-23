@@ -30,7 +30,6 @@ const BusinessSummary = () => {
                         start={2500}
                         end={4246}
                         duration={3}
-                        suffix="K"
                         className='text-stone-800 text-4xl font-bold'
                     ></CountUp>
 
@@ -44,7 +43,6 @@ const BusinessSummary = () => {
                         start={38999}
                         end={53563}
                         duration={3}
-                        suffix="K"
                         className='text-stone-800 text-4xl font-bold'
                     ></CountUp>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
+import Loading from '../../Components/Shared/Loading';
 
 const AddProduct = () => {
 
@@ -13,8 +14,12 @@ const AddProduct = () => {
 
     const imageStorageKey = 'da7a354ac5b93a961b8fece49f261619'
 
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     const handleAddProduct =  data => {
-        // console.log(data);
+        console.log(data);
         const image = data.img[0]
         const formData = new FormData();
         formData.append('image', image);
@@ -32,6 +37,7 @@ const AddProduct = () => {
                         name: data.name,
                         price: data.price,
                         quantity: data.quantity,
+                        description: data.description,
                         img: image
                     }
         //             // send to database
