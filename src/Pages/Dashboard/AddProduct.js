@@ -1,11 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 import Loading from '../../Components/Shared/Loading';
+import auth from '../../Firebase/firebase.init';
 
 const AddProduct = () => {
 
+    const [user] = useAuthState(auth)
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -14,7 +17,7 @@ const AddProduct = () => {
     const imageStorageKey = 'da7a354ac5b93a961b8fece49f261619'
 
 
-    const handleAddProduct =  data => {
+    const handleAddProduct = data => {
         console.log(data);
         const image = data.img[0]
         const formData = new FormData();
@@ -29,24 +32,26 @@ const AddProduct = () => {
                 // console.log('imagebb', result);
                 if (result.success) {
                     const image = result.data.url
+
                     const product = {
+                        email: data.email, 
                         name: data.name,
                         price: data.price,
                         quantity: data.quantity,
                         description: data.description,
                         img: image
                     }
-        //             // send to database
+                    //             // send to database
                     fetch('http://localhost:5000/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-        //                     // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                            //                     // authorization: `Bearer ${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(product)
                     })
                         .then(res => res.json())
-                        .then( addedProduct => {
+                        .then(addedProduct => {
                             console.log(addedProduct);
                             if (addedProduct.insertedId) {
                                 toast.success('Product added successfully')
@@ -56,8 +61,8 @@ const AddProduct = () => {
                                 toast.error('Faild to add the product. Please try again.')
                             }
                         })
-                    }
-        })
+                }
+            })
 
         if (isLoading) {
             return <Loading></Loading>
@@ -80,9 +85,40 @@ const AddProduct = () => {
                             <div className="form-control bg-transparent border-0">
 
                                 <label className="label">
-                                    <span className="label-text">NAME</span>
+                                    <span className="label-text">YOUR EMAIL</span>
                                 </label>
-                                <input type="text" placeholder="name" name="name" className="input input-bordered bg-transparent"
+                                <input type="email" name="email" className="input input-bordered bg-transparent font-semibold text-lg opacity-75" readOnly
+                                    value={user.email}
+                                    {...register("email", {
+                                        required: {
+                                            message: "name is required",
+                                        },
+                                        pattern: {
+                                            value: true,
+                                            message: "Product name is not required",
+                                        },
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.name?.type === "required" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.name.message}
+                                        </span>
+                                    )}
+                                    {errors.name?.type === "pattern" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.name.message}
+                                        </span>
+                                    )}
+                                </label>
+                            </div>
+
+                            <div className="form-control bg-transparent border-0">
+
+                                <label className="label">
+                                    <span className="label-text">PRODUCT NAME</span>
+                                </label>
+                                <input type="text" placeholder="name" name="name" className="input input-bordered bg-transparent font-semibold text-lg"
                                     {...register("name", {
                                         required: {
                                             value: true,
@@ -111,9 +147,9 @@ const AddProduct = () => {
 
                             <div className="form-control bg-transparent border-0">
                                 <label className="label">
-                                    <span className="label-text">PRICE</span>
+                                    <span className="label-text">PRODUCT PRICE</span>
                                 </label>
-                                <input type="number" name="price" className="input input-bordered bg-transparent"
+                                <input type="number" name="price" className="input input-bordered bg-transparent font-semibold text-lg"
                                     {...register("price", {
                                         required: {
                                             value: true,
@@ -143,9 +179,9 @@ const AddProduct = () => {
 
                             <div className="form-control bg-transparent border-0">
                                 <label className="label">
-                                    <span className="label-text">QUANTITY</span>
+                                    <span className="label-text">PRODUCT QUANTITY</span>
                                 </label>
-                                <input type="number" name="quantity" className="input input-bordered bg-transparent"
+                                <input type="number" name="quantity" className="input input-bordered bg-transparent font-semibold text-lg"
                                     {...register("quantity", {
                                         required: {
                                             value: true,
@@ -175,9 +211,9 @@ const AddProduct = () => {
 
                             <div className="form-control bg-transparent border-0">
                                 <label className="label">
-                                    <span className="label-text">IMAGE</span>
+                                    <span className="label-text">PRODUCT IMAGE</span>
                                 </label>
-                                <input type="file" name="image" className="form-control h-10 input input-bordered bg-transparent"
+                                <input type="file" name="image" className="form-control h-10 input input-bordered bg-transparent font-semibold text-lg"
                                     {...register("img", {
                                         required: {
                                             value: true,
@@ -205,9 +241,9 @@ const AddProduct = () => {
 
                             <div className="form-control bg-transparent border-0">
                                 <label className="label">
-                                    <span className="label-text">Description</span>
+                                    <span className="label-text">PRODUCT DESCRIPTION</span>
                                 </label>
-                                <textarea type="text" name="description" className="input input-bordered bg-transparent h-20"
+                                <textarea type="text" name="description" className="input input-bordered bg-transparent h-20 font-semibold text-lg"
                                     {...register("description", {
                                         required: {
                                             value: true,
