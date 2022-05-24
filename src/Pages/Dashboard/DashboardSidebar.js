@@ -1,10 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../Firebase/firebase.init';
 import useAdmin from '../../Hooks/useAdmin';
 
 const DashboardSidebar = ({ children }) => {
 
-    const [admin] = useAdmin()
+    const [user] = useAuthState(auth)
+
+    const [admin] = useAdmin(user)
 
     return (
         <div className='bg-stone-400'>
