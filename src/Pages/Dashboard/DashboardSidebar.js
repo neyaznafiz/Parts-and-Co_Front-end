@@ -30,13 +30,21 @@ const DashboardSidebar = ({ children }) => {
                             <Link to='/dashboard/myprofile' className='font-semibold hover:text-stone-600'>MY PROFILE</Link>
                         </li>
 
-                        <li>
-                            <Link to='/dashboard/myorders' className='font-semibold hover:text-stone-600'>MY ORDERS</Link>
-                        </li>
+                        { !admin && user &&
+                            <>
+                                <li>
+                                    <Link to='/dashboard/myorders' className='font-semibold hover:text-stone-600'>MY ORDERS</Link>
+                                </li>
 
-                        <li>
-                            <Link to='/dashboard/addareview' className='font-semibold hover:text-stone-600'>ADD A REVIEW</Link>
-                        </li>
+                                <li>
+                                    <Link to='/dashboard/myreview' className='font-semibold hover:text-stone-600'>MY REVIEW</Link>
+                                </li>
+
+                                <li>
+                                    <Link to='/dashboard/addareview' className='font-semibold hover:text-stone-600'>ADD A REVIEW</Link>
+                                </li>
+                            </>
+                        }
 
                         {admin &&
 
@@ -58,7 +66,6 @@ const DashboardSidebar = ({ children }) => {
                                 </li>
                             </>
                         }
-
 
                     </ul>
 

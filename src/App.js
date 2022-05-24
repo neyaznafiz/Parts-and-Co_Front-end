@@ -22,6 +22,7 @@ import Purchase from './Pages/Purchase';
 import EditProfile from './Pages/Dashboard/MyProfile/EditProfile';
 import MyAddedItems from './Pages/Dashboard/MyAddedItems/MyAddedItems';
 import AllUsers from './Pages/Dashboard/AllUser/AllUsers';
+import MyReview from './Pages/Dashboard/MyReview';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
               <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>} ></Route>
               <Route path='addproduct' element={<AddProduct></AddProduct>} ></Route>
               <Route path='addareview' element={<AddaReview></AddaReview>} ></Route>
+              <Route path='myreview' element={<MyReview></MyReview>} ></Route>
               <Route path='myaddeditems' element={<MyAddedItems></MyAddedItems>} ></Route>
             </Route>
 

@@ -55,11 +55,14 @@ const Navbar = ({ children }) => {
                                 <Link to='/allproducts' className='rounded font-semibold hover:text-stone-800'>ALL PRODUCTS</Link>
                             </li>
 
-                            {user && (
-                                <li>
-                                    <Link to='/dashboard/myprofile' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
-                                </li>
-                            )}
+                            <li>
+                                <Link to='/purchase' className='rounded font-semibold hover:text-stone-800'>PURCHASE</Link>
+                            </li>
+
+                            <li>
+                                <Link to='/dashboard/myprofile' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
+                            </li>
+
                             <li>
                                 <Link to='/blog' className='rounded font-semibold hover:text-stone-800'>BLOG</Link>
                             </li>
@@ -98,6 +101,10 @@ const Navbar = ({ children }) => {
 
                     <li>
                         <Link to='/allproducts' className='rounded font-semibold hover:text-stone-800'>ALL PRODUCTS</Link>
+                    </li>
+
+                    <li>
+                        <Link to='/purchase' className='rounded font-semibold hover:text-stone-800'>PURCHASE</Link>
                     </li>
 
                     <li>
