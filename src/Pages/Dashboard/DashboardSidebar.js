@@ -26,12 +26,6 @@ const DashboardSidebar = ({ children }) => {
                     <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
                         {/* <!-- Sidebar content here --> */}
 
-                        {admin &&
-                            <li>
-                                <Link to='/dashboard/allusers' className='font-semibold hover:text-stone-600'>ALL USERS</Link>
-                            </li>
-                        }
-
                         <li>
                             <Link to='/dashboard/myprofile' className='font-semibold hover:text-stone-600'>MY PROFILE</Link>
                         </li>
@@ -41,20 +35,31 @@ const DashboardSidebar = ({ children }) => {
                         </li>
 
                         <li>
-                            <Link to='/dashboard/addproduct' className='font-semibold hover:text-stone-600'>ADD PRODUCT</Link>
-                        </li>
-
-                        <li>
                             <Link to='/dashboard/addareview' className='font-semibold hover:text-stone-600'>ADD A REVIEW</Link>
                         </li>
 
-                        <li>
-                            <Link to='/dashboard/myaddeditems' className='font-semibold hover:text-stone-600'>MY ADDED ITEMS</Link>
-                        </li>
+                        {admin &&
 
-                        <li>
-                            <Link to='/dashboard/manageallorders' className='font-semibold hover:text-stone-600'>MANAGE ALL ORDERS</Link>
-                        </li>
+                            <>
+                                <li>
+                                    <Link to='/dashboard/allusers' className='font-semibold hover:text-stone-600'>ALL USERS</Link>
+                                </li>
+
+                                <li>
+                                    <Link to='/dashboard/addproduct' className='font-semibold hover:text-stone-600'>ADD PRODUCT</Link>
+                                </li>
+
+                                <li>
+                                    <Link to='/dashboard/myaddeditems' className='font-semibold hover:text-stone-600'>MY ADDED ITEMS</Link>
+                                </li>
+
+                                <li>
+                                    <Link to='/dashboard/manageallorders' className='font-semibold hover:text-stone-600'>MANAGE ALL ORDERS</Link>
+                                </li>
+                            </>
+                        }
+
+
                     </ul>
 
                 </div>
