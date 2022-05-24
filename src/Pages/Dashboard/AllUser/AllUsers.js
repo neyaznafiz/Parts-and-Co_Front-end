@@ -29,7 +29,7 @@ const AllUsers = () => {
 
     // }, [users])
     return (
-        <div className='w-full  p-20'>
+        <div className='lg:w-full  p-20'>
             <div class="">
                 <table class="table">
                     <thead>

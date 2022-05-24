@@ -1,10 +1,11 @@
 import React from 'react';
 
-const DisplayMyAddedItems = ({ product }) => {
+const DisplayMyAddedItems = ({ product, productDeleteHandle }) => {
 
     const { img, name, quantity, description, price } = product
 
     return (
+
         <div className=''>
 
             <div class="card lg:card-side shadow-2xl bg-transparent">
@@ -21,13 +22,13 @@ const DisplayMyAddedItems = ({ product }) => {
                         <p className='font-semibold text-stone-700'>Quantity: {quantity}</p>
                     </div>
 
-                    <button className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" > PURCHASE </button>
+                    <button onClick={()=>productDeleteHandle(product._id)} className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" > DELETE </button>
 
                 </div>
             </div>
 
         </div>
-    );
+    )
 };
 
 export default DisplayMyAddedItems;

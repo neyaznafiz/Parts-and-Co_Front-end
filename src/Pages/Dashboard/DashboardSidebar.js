@@ -58,7 +58,7 @@ const DashboardSidebar = ({ children }) => {
                                 </li>
 
                                 <li>
-                                    <Link to='/dashboard/myaddeditems' className='font-semibold hover:text-stone-600'>MY ADDED ITEMS</Link>
+                                    <Link to='/dashboard/myaddeditems' className='font-semibold hover:text-stone-600'>MY ADDED PRODUCTS</Link>
                                 </li>
 
                                 <li>
