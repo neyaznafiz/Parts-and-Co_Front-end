@@ -38,6 +38,7 @@ const AddProduct = () => {
                         name: data.name,
                         price: data.price,
                         quantity: data.quantity,
+                        orderQuantity: data.orderQuantity,
                         description: data.description,
                         img: image
                     }
@@ -179,7 +180,7 @@ const AddProduct = () => {
 
                             <div className="form-control bg-transparent border-0">
                                 <label className="label">
-                                    <span className="label-text">PRODUCT QUANTITY</span>
+                                    <span className="label-text">AVAILABLE PRODUCT QUANTITY</span>
                                 </label>
                                 <input type="number" name="quantity" className="input input-bordered bg-transparent font-semibold text-lg"
                                     {...register("quantity", {
@@ -207,6 +208,36 @@ const AddProduct = () => {
                                 </label>
                             </div>
 
+
+                            <div className="form-control bg-transparent border-0">
+                                <label className="label">
+                                    <span className="label-text">MINIMUM ORDER QUANTITY</span>
+                                </label>
+                                <input type="number" name="quantity" className="input input-bordered bg-transparent font-semibold text-lg"
+                                    {...register("orderQuantity", {
+                                        required: {
+                                            value: true,
+                                            message: "Order quantity is required",
+                                        },
+                                        pattern: {
+                                            value: true,
+                                            message: "Your order quantity is not required",
+                                        },
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.quantity?.type === "required" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.quantity.message}
+                                        </span>
+                                    )}
+                                    {errors.quantity?.type === "pattern" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.quantity.message}
+                                        </span>
+                                    )}
+                                </label>
+                            </div>
 
 
                             <div className="form-control bg-transparent border-0">
