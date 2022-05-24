@@ -34,7 +34,7 @@ const AddProduct = () => {
                     const image = result.data.url
 
                     const product = {
-                        email: data?.email, 
+                        email: data?.email,
                         name: data.name,
                         price: data.price,
                         quantity: data.quantity,
@@ -47,7 +47,7 @@ const AddProduct = () => {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-                            //                     // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                            // authorization: `Bearer ${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(product)
                     })

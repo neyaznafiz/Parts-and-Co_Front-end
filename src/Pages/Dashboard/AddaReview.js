@@ -1,15 +1,43 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import auth from '../../Firebase/firebase.init';
 
 const AddaReview = () => {
 
-    const {
-        register,
-        formState: { errors },
-        handleSubmit,
-    } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const onSubmit = async (data) => { };
+    const [user] =useAuthState(auth)
+
+    const handleAddReview = data => {
+
+        const inputReview = {
+            name:data.name,
+            email: user.email,
+            review: data.review
+        }
+
+        fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(inputReview)
+        })
+            .then(res => res.json())
+            .then(addedReview => {
+                console.log(addedReview);
+                if (addedReview.insertedId) {
+                    toast.success('Your review added successfully')
+                    reset()
+                }
+                else {
+                    toast.error('Faild to add your review. Please try again.')
+                }
+            })
+    }
 
     return (
         <div>
@@ -17,19 +45,19 @@ const AddaReview = () => {
                 <div className="card-body w-full">
                     <h2 className="text-center text-2xl font-bold pb-7">WELCOME TO REVIEW SECTION</h2>
                     <div>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(handleAddReview)}>
                             <div className="form-control  max-w-xs bg-transparent border-0">
                                 <label className="label">
                                     <span className="label-text">TYPE YOUR REVIEW</span>
                                 </label>
-                                <textarea type="text" placeholder="yourReview" name="yourReview" className="input input-bordered lg:w-[410px] h-[] h-[100px] bg-transparent"
-                                    {...register("yourReview", {
+                                <textarea type="text" placeholder="yourReview" name="yourReview" className="input input-bordered lg:w-[410px] h-[100px] bg-transparent"
+                                    {...register("review", {
                                         required: {
                                             value: true,
                                             message: "yourReview is required",
                                         },
                                         minLength: {
-                                            value: 40,
+                                            value: 10,
                                             message: "your yourReview  must be 40 character",
                                         },
                                     })}
@@ -48,7 +76,9 @@ const AddaReview = () => {
                                 </label>
                             </div>
 
-                            <input type="submit" value='SUBMIT' className="btn btn-outline w-full px-3 py-1 rounded-md hover:bg-transparent hover:text-black" />
+                            <div className='grid mx-auto'>
+                            <input type="submit" value='POST REVIEW' className="btn btn-outline w-40 px-3 py-1 mx-auto rounded-md hover:bg-transparent hover:text-black" />
+                            </div>
                         </form>
                     </div>
                 </div>

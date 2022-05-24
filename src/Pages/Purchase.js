@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Purchase = () => {
 
@@ -8,7 +8,7 @@ const Purchase = () => {
 
     const [products, setProducts] = useState({})
     console.log(products)
-    const { name, img, price, quantity, description } = products
+    const { name, img, price, quantity, orderQuantity, description } = products
 
     const [newQuantity, setNewQuantity] = useState(0)
 
@@ -30,62 +30,59 @@ const Purchase = () => {
     const handleAddToOrder = event => {
         event.preventDefault()
 
-        const buyerQuantity = event.target.buyer-quantity.value
+        const buyerQuantity = event.target.buyer - quantity.value
         console.log(buyerQuantity);
 
-        // if (newQuantity > 0) {
-        //     const updatedData = quantity - coustomerQuantity
-        //     setNewQuantity(updatedData)
 
-        //     const url = `https://cryptic-stream-11517.herokuapp.com/dress/${Id}`
-
-        //     fetch(url, {
-        //         method: 'PUT',
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify({ updatedData })
-        //     })
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             console.log(data);
-        //             // setProduct(data)
-        //             // alert('quantity updatted')
-        //         })
-        // }
     }
 
 
     return (
-        <div className='bg-stone-400 lg:h-screen lg:pt-28'>
+        <div className='bg-stone-400 h-screen lg:pt-28'>
 
-            <div class="card lg:card-side shadow-2xl bg-transparent m-10 lg:w-[600px] lg:mx-auto lg:grid ">
+            {Id ?
+                <div class="card lg:card-side shadow-2xl bg-transparent m-10 lg:w-[600px] lg:mx-auto lg:grid ">
 
-                <figure><img src={img} alt="" className='lg:w-60 h-90' /></figure>
+                    <figure><img src={img} alt="" className='lg:w-60 h-90' /></figure>
 
-                <div class="card-body">
-                    <h2 class="card-title text-stone-800">{name}</h2>
+                    <div class="card-body">
+                        <h2 class="card-title text-stone-800">{name}</h2>
 
-                    <p>{description}</p>
+                        <p>{description}</p>
 
-                    <div className='flex mx-auto gap-10 pt-2 text-lg'>
-                        <p className='font-semibold text-stone-700'>Price: ${price}</p>
-                        <p className='font-semibold text-stone-700'>Quantity: {quantity}</p>
-                    </div>
-
-                    <form onSubmit={handleAddToOrder}>
-                        <div className='grid justify-center pb-2'>
-                            <label className="label">
-                                <span className="label-text font-semibold">SET THE QUANTITY YOU WANT</span>
-                            </label>
-                            <input type="number" name="buyer-quantity" id="" className="input input-bordered bg-transparent font-semibold text-lg w-52" />
+                        <div className='flex mx-auto gap-10 pt-2 text-lg'>
+                            <p className='font-semibold text-stone-700'>Available Quantity: {quantity}</p>
+                            <p className='font-semibold text-stone-700'>Price: ${price}/pcs</p>
                         </div>
 
+                        <form onSubmit={handleAddToOrder}>
+                            <div className='grid justify-center pb-2'>
+                                <label className="label">
+                                    <span className="label-text font-semibold uppercase">minimum order quantity: {orderQuantity}</span>
+                                </label>
+                                <input type="number" name="buyer-quantity" className="input input-bordered bg-transparent font-semibold text-lg w-32 mx-auto" />
+                            </div>
 
-                        <input type='submit' value='SUBMIT' className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" />
-                    </form>
+
+                            <div className='grid py-4 mx-auto'>
+                                <input type='submit' value='SUBMIT' className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
+                :
+                <div>
+                    <div class="card lg:card-side shadow-2xl bg-transparent m-10 lg:w-[1200px] lg:mx-auto lg:grid p-10">
+
+                        <p className='text-3xl text-center uppercase'>Please go to product page and select a product to purchage.</p>
+
+                        <div className='grid py-4 mx-auto'>
+                                <Link to='/allproducts' className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black">GO TO ALL PRODUCT </Link>
+                            </div>
+
+                    </div>
+                </div>
+            }
 
 
         </div>
