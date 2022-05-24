@@ -7,6 +7,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
 import { toast } from 'react-toastify';
 import Loading from '../../Components/Shared/Loading';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
 
@@ -18,6 +19,8 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth)
 
     const { register, formState: { errors }, handleSubmit } = useForm()
+
+    const [token] = useToken(user)
 
     let navigate = useNavigate()
     let location = useLocation()
@@ -31,7 +34,7 @@ const Login = () => {
         return <Loading></Loading>
     }
 
-    if(user){
+    if (token) {
         navigate(from, { replace: true })
     }
 
@@ -56,7 +59,7 @@ const Login = () => {
                                             <form onSubmit={handleSubmit(handleLogin)}>
 
                                                 <div className="form-control w-full bg-transparent border-0 ">
-                                                <label className="form-label text-white bg-inherit" >Your Email</label>
+                                                    <label className="form-label text-white bg-inherit" >Your Email</label>
                                                     <input type="email"
                                                         className="input input-bordered bg-transparent border text-white"
                                                         {...register("email", {
@@ -77,7 +80,7 @@ const Login = () => {
                                                 </div>
 
                                                 <div className="form-control w-full bg-transparent border-0">
-                                                <label className="form-label text-white">Password</label>
+                                                    <label className="form-label text-white">Password</label>
                                                     <input type="password"
                                                         className="input input-bordered  bg-transparent border text-white"
                                                         {...register("password", {
@@ -98,7 +101,7 @@ const Login = () => {
 
                                                 <div className="grid lg:flex flex-row justify-center lg:justify-between align-items-center mb-4">
                                                     <div>
-                                                    <p className='lg:pl-4 text-center'>Forget Password</p>
+                                                        <p className='lg:pl-4 text-center'>Forget Password</p>
                                                     </div>
 
                                                     <div>
