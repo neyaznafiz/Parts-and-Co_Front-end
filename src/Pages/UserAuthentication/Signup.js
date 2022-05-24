@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import Signupbg from '../../Asstes/Signupbg.jpg'
 import Loading from '../../Components/Shared/Loading';
 import auth from '../../Firebase/firebase.init';
+import useToken from '../../Hooks/useToken';
 import SocialSignup from './SocialSignup';
 
 const Signup = () => {
@@ -22,6 +23,8 @@ const Signup = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth)
 
+    const [token] = useToken(user)
+
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -36,7 +39,7 @@ const Signup = () => {
         return <Loading></Loading>
     }
 
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
         toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature of our website.')
     }

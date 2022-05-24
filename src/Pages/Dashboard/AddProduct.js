@@ -34,7 +34,7 @@ const AddProduct = () => {
                     const image = result.data.url
 
                     const product = {
-                        email: data.email, 
+                        email: data?.email, 
                         name: data.name,
                         price: data.price,
                         quantity: data.quantity,
@@ -88,7 +88,7 @@ const AddProduct = () => {
                                     <span className="label-text">YOUR EMAIL</span>
                                 </label>
                                 <input type="email" name="email" className="input input-bordered bg-transparent font-semibold text-lg opacity-75" readOnly
-                                    value={user.email}
+                                    value={user?.email}
                                     {...register("email", {
                                         required: {
                                             message: "name is required",

@@ -8,8 +8,9 @@ const MyProfile = () => {
 
     const [user] = useAuthState(auth)
     console.log(user)
-
     const { displayName, email } = user
+
+    
 
 
     return (
@@ -18,9 +19,9 @@ const MyProfile = () => {
             <div class=" rounded-lg border-2 border-stone-500 ">
 
                 <div className='flex justify-between'>
-                    <Link to='/editprofile'> llll </Link>
+                   
                     <p className='pl-4 py-3 text-xl font-semibold'> MY PROFILE</p>
-                    <button className='flex text-xl font-semibold pr-4 py-3'> <BiEdit className='mt-[6px] font-semibold' /> EDIT</button>
+                    <Link to='/editprofile' className='flex text-xl font-semibold pr-4 py-3'> <BiEdit className='mt-[6px] font-semibold' /> EDIT</Link>
                 </div>
 
                 <div class="grid justify-center px-4 py-10 border-t border-stone-500">
