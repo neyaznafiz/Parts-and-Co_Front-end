@@ -7,6 +7,7 @@ import { useSignInWithFacebook, useSignInWithGoogle, useSignInWithTwitter } from
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../../Components/Shared/Loading';
+import useToken from '../../Hooks/useToken';
 
 
 const SocialSignup = () => {
@@ -14,6 +15,8 @@ const SocialSignup = () => {
     const [signInWithGoogle, GoogleUser, googleLoading, googleError] = useSignInWithGoogle(auth)
     const [signInWithTwitter, twitterUser, twitterLoading, twitterError] = useSignInWithTwitter(auth);
     const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
+
+    const [token] = useToken(GoogleUser || facebookUser || twitterUser)
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -27,7 +30,7 @@ const SocialSignup = () => {
         return <Loading></Loading>
     }
 
-    if (GoogleUser || facebookUser || twitterUser) {
+    if (token) {
         navigate(from, { replace: true })
 
         toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature of our website.')
