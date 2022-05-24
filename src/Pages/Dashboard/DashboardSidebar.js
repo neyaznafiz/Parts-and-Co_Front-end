@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAdmin from '../../Hooks/useAdmin';
 
 const DashboardSidebar = ({ children }) => {
+
+    const [admin] = useAdmin()
+
     return (
         <div className='bg-stone-400'>
 
@@ -17,8 +21,15 @@ const DashboardSidebar = ({ children }) => {
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
                         {/* <!-- Sidebar content here --> */}
+
+                        {admin &&
+                            <li>
+                                <Link to='/dashboard/allusers' className='font-semibold hover:text-stone-600'>ALL USERS</Link>
+                            </li>
+                        }
+
                         <li>
-                            <Link to='/dashboard/myprofile' className='font-semibold hover:text-stone-600'>MY PROFILE</Link> 
+                            <Link to='/dashboard/myprofile' className='font-semibold hover:text-stone-600'>MY PROFILE</Link>
                         </li>
 
                         <li>
@@ -31,6 +42,10 @@ const DashboardSidebar = ({ children }) => {
 
                         <li>
                             <Link to='/dashboard/addareview' className='font-semibold hover:text-stone-600'>ADD A REVIEW</Link>
+                        </li>
+
+                        <li>
+                            <Link to='/dashboard/myaddeditems' className='font-semibold hover:text-stone-600'>MY ADDED ITEMS</Link>
                         </li>
 
                         <li>

@@ -20,6 +20,8 @@ import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AllProducts from './Pages/Products/AllProducts';
 import Purchase from './Pages/Purchase';
 import EditProfile from './Pages/Dashboard/MyProfile/EditProfile';
+import MyAddedItems from './Pages/Dashboard/MyAddedItems/MyAddedItems';
+import AllUsers from './Pages/Dashboard/AllUser/AllUsers';
 
 
 function App() {
@@ -42,10 +44,12 @@ function App() {
             <Route path='/dashboard' element={<Dashboard></Dashboard>} >
               <Route path='myprofile' element={<MyProfile></MyProfile>} >
               </Route>
+              <Route path='allusers' element={<AllUsers></AllUsers>} ></Route>
               <Route path='myorders' element={<MyOrders></MyOrders>} ></Route>
               <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>} ></Route>
               <Route path='addproduct' element={<AddProduct></AddProduct>} ></Route>
               <Route path='addareview' element={<AddaReview></AddaReview>} ></Route>
+              <Route path='myaddeditems' element={<MyAddedItems></MyAddedItems>} ></Route>
             </Route>
 
             <Route path='/purchase' element={<Purchase />} ></Route>
