@@ -41,7 +41,7 @@ const MyAddedItems = () => {
 
 
 
-    const productDeleteHandle = (id) => {
+    const handleDeleteProduct = (id) => {
         const proceed = window.confirm("Are you sure?");
 
         if (proceed) {
@@ -71,7 +71,7 @@ const MyAddedItems = () => {
                     product.map(product => <DisplayMyAddedItems
                         key={product._id}
                         product={product}
-                        productDeleteHandle={productDeleteHandle}
+                        handleDeleteProduct={handleDeleteProduct}
                     ></DisplayMyAddedItems>)
                 }
             </div>

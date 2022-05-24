@@ -1,8 +1,8 @@
 import React from 'react';
 
-const DisplayMyAddedItems = ({ product, productDeleteHandle }) => {
+const DisplayMyAddedItems = ({ product, handleDeleteProduct }) => {
 
-    const { img, name, quantity, description, price } = product
+    const { _id, img, name, quantity, orderQuantity, description, price } = product
 
     return (
 
@@ -21,8 +21,9 @@ const DisplayMyAddedItems = ({ product, productDeleteHandle }) => {
                         <p className='font-semibold text-stone-700'>Price: ${price}</p>
                         <p className='font-semibold text-stone-700'>Quantity: {quantity}</p>
                     </div>
+                        <p className='font-semibold text-stone-700 text-center pb-4'>Minimum order quantity: {orderQuantity}</p>
 
-                    <button onClick={()=>productDeleteHandle(product._id)} className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" > DELETE </button>
+                    <button onClick={()=>handleDeleteProduct(_id)} className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" > DELETE </button>
 
                 </div>
             </div>
