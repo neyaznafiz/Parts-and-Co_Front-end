@@ -1,26 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../../../Components/Shared/Loading';
 import DisplayAllUser from './DisplayAllUser';
 
 const AllUsers = () => {
 
-    // const { data: users } = useQuery('users', () => fetch('http://localhost:5000/user').then(res => res.json()))
+    const { data, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+        method: "GET",
+        headers:{
+            authorization : `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()))
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
+   
+
     // console.log();
 
-    const [user, setUser] = useState([])
-    useEffect(() => {
-        // console.log(user.email);
+    // const [users, setUsers] = useState([])
+    // useEffect(() => {
+    //     // console.log(user.email);
 
-        fetch('http://localhost:5000/user')
-            .then(res => res.json())
-            .then(data => setUser(data))
+    //     fetch('http://localhost:5000/users')
+    //         .then(res => res.json())
+    //         .then(data => setUsers(data))
 
-    }, [user])
+    // }, [users])
     return (
         <div className='w-full  p-20'>
             <div class="">
                 <table class="table">
-                    {/* <!-- head --> */}
                     <thead>
                         <tr>
                             {/* <th>SL</th> */}
@@ -33,11 +44,11 @@ const AllUsers = () => {
 
                     <tbody>
                         {
-                            user.map((user, index) => <DisplayAllUser
-                                key={user._id}
-                                user={user}
-                                index={index}
-                            ></DisplayAllUser>)
+                        data?.map(user => <DisplayAllUser
+                        key={user._id}
+                        user={user}
+                        refetch={refetch}
+                        ></DisplayAllUser>)
                         }
                     </tbody>
                 </table>
