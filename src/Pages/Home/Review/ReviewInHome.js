@@ -16,7 +16,7 @@ const ReviewInHome =  () => {
 
     return (
         <div>
-            review
+          
         </div>
     );
 };

@@ -11,7 +11,7 @@ import NotFound from './Components/NotFound';
 import MyPortfolio from './Pages/MyPortfolio';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Blog from './Pages/Blog';
-import MyOrders from './Pages/Dashboard/MyOrders';
+import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import PrivateRoute from './Routes/PrivateRoute';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';

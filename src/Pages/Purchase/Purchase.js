@@ -16,36 +16,14 @@ const Purchase = () => {
     const { name, img, price, quantity, orderQuantity, description } = products
 
 
+    
+    
+
     const coustomerQuantityValue = getValues('coustomerQuantity')
     console.log(coustomerQuantityValue);
     const newPrice = coustomerQuantityValue * price
+    
 
-
-
-
-    // const [newQuantity, setNewQuantity] = useState(0)
-    // console.log(newQuantity);
-
-    // const [totalPrice, setTotalPrice] = useState(0)
-    // console.log(totalPrice);
-
-    // setTotalPrice(newPrice)
-    // console.log(newPrice);
-
-    // setNewQuantity(coustomerQuantityValue)
-
-
-    //     const handleCoustomerOrderQuantity = event => {
-    //         event.preventDefault()
-
-    //         const quantityValue = event.target.buyer-quantity.value
-    //         console.log(quantityValue);
-    //         // setNewQuantity()
-
-    //     }
-    // console.log(newQuantity);
-
-    // get product by id
     useEffect(() => {
         if (Id) {
             const url = `http://localhost:5000/singleProduct/${Id}`
