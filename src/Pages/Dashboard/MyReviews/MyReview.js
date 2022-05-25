@@ -45,7 +45,7 @@ const MyReview = () => {
 
                     <p className='py-2 pl-3 text-lg font-semibold'>E-mail : {user.email}</p>
 
-                <div class=" px-4 py-8 border-t">
+                <div class=" px-4 py-8 border-t ">
 
                     <div>
                         {

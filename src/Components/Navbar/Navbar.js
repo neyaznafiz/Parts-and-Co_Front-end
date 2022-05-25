@@ -7,7 +7,6 @@ import useAdmin from '../../Hooks/useAdmin';
 
 const Navbar = ({ children }) => {
     const [user] = useAuthState(auth)
-    console.log(user);
 
     const [admin] = useAdmin()
     const { pathname } = useLocation()

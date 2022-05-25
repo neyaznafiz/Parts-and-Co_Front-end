@@ -14,7 +14,17 @@ const Purchase = () => {
     console.log(products)
     const { name, img, price, quantity, orderQuantity, description } = products
 
-    const [newQuantity, setNewQuantity] = useState(orderQuantity)
+    
+    const [newQuantity, setNewQuantity] = useState()
+    console.log(newQuantity);
+
+    const handleCoustomerOrderQuantity = event =>{
+        event.preventDefault()
+
+        const coustomerOrderQuantity = event.target.coustomerquantity.value
+        setNewQuantity(coustomerOrderQuantity)
+    }
+
 
     const { register, formState: { errors }, handleSubmit } = useForm()
 
@@ -106,11 +116,12 @@ const Purchase = () => {
                             <div className="form-control w-full bg-transparent border-0">
                                 <label className="form-label">MINIMUM ORDER QUANTITY : {orderQuantity}</label>
                                 <input type="number"
+                                onBlur={ handleCoustomerOrderQuantity}
                                     className="input input-bordered w-full bg-transparent text-lg"
                                     {...register("coustomerQuantity", {
                                         required: {
                                             value: true,
-                                            message: 'Ad your quantity'
+                                            message: 'Add your quantity please'
                                         }
                                     })} />
                                 <label className="label">
@@ -125,7 +136,7 @@ const Purchase = () => {
                                 <label className="form-label">TOTAL PRICE</label>
                                 <input type="number"
                                     className="input input-bordered w-full bg-transparent text-lg"
-                                    value={orderQuantity * price}
+                                    value={newQuantity * price}
                                     {...register("totalPrice", {
                                         required: {
                                             message: 'price is reqired'
