@@ -109,6 +109,11 @@ const Navbar = ({ children }) => {
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
                     {/* <!-- Sidebar content here --> */}
+
+
+<p className='text-3xl font-semibold py-1 text-center border-2 border-stone-600 rounded-full'>{user?.displayName.slice(0, 1)}</p>
+
+
                     <li>
                         <Link to='/' className='rounded font-semibold hover:text-stone-800'>HOME</Link>
                     </li>

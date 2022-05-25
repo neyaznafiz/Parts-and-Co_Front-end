@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const DisplayAllProducts = ({ product }) => {
+const DisplayAllProducts = ({ product}) => {
 
     const { _id, name, price, description, quantity, orderQuantity, img } = product
 
@@ -29,11 +29,12 @@ const DisplayAllProducts = ({ product }) => {
                     </div>
                     <p className='font-semibold text-stone-700 text-center pb-4'>Minimum order quantity: {orderQuantity}</p>
 
-                    <button onClick={()=> navigateToPurchase(_id)} className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" > PURCHASE </button>
+                   <button onClick={()=> navigateToPurchase(_id)} className="btn btn-outline w-52 mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black" > PURCHASE </button>
 
+                    
                 </div>
             </div>
-
+            
         </div>
     );
 };

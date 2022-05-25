@@ -18,7 +18,7 @@ import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
 import AddaReview from './Pages/Dashboard/AddaReview';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AllProducts from './Pages/Products/AllProducts';
-import Purchase from './Pages/Purchase';
+import Purchase from './Pages/Purchase/Purchase';
 import EditProfile from './Pages/Dashboard/MyProfile/EditProfile';
 import MyAddedItems from './Pages/Dashboard/MyAddedItems/MyAddedItems';
 import AllUsers from './Pages/Dashboard/AllUser/AllUsers';

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useProducts from '../../Hooks/useProducts';
+import PurchaseModal from '../Purchase/PurchaseModal';
 import DisplayAllProducts from './DisplayAllProducts';
 
 const AllProducts = () => {
@@ -14,6 +15,8 @@ const AllProducts = () => {
                     product={product}
                 />)
             }
+
+            
         </div>
     );
 };
