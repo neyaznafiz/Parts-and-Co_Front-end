@@ -7,6 +7,7 @@ import useAdmin from '../../Hooks/useAdmin';
 
 const Navbar = ({ children }) => {
     const [user] = useAuthState(auth)
+    console.log(user);
 
     const [admin] = useAdmin()
     const { pathname } = useLocation()
@@ -43,7 +44,7 @@ const Navbar = ({ children }) => {
                         </label>
                     </div>
 
-                    <div className="flex-none hidden lg:block">
+                    <div className="flex-none hidden lg:block ">
                         <ul className="menu menu-horizontal">
                             {/* <!-- Navbar menu content here --> */}
 
@@ -80,9 +81,22 @@ const Navbar = ({ children }) => {
                                         <span className='flex items-center font-semibold rounded hover:text-stone-800'> LOGIN </span>
                                     </Link>
                                     :
-                                    <Link to='/' className='cursor-pointer p-2'>
-                                        <span onClick={handleSignOut} className='flex items-center font-semibold rounded hover:text-stone-800'> LOG OUT</span>
-                                    </Link>
+                                    <div class="dropdown dropdown-end">
+
+                                        <p tabindex="0" class=" px-3 pb-1 shadow-none text-2xl font-bold border-2 border-black rounded-full">{user?.displayName.slice(0, 1)}</p>
+
+                                        <ul tabindex="0" class="dropdown-content menu p-2 border-2 border-stone-600 rounded-box mt-52">
+
+                                            <p className='text-center font-serif font-semibold'> {user?.displayName}</p>
+                                            <p className='text-center my-2 font-semibold'> {user?.email}</p>
+
+                                            <Link to='/' className='cursor-pointer p-2 my-2'>
+                                                <span onClick={handleSignOut} className='flex items-center justify-center font-semibold outline rounded hover:text-stone-800'> LOG OUT</span>
+                                            </Link>
+
+                                        </ul>
+                                    </div>
+
                                 }
                             </li>
                         </ul>
