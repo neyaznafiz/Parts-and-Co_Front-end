@@ -3,7 +3,7 @@
 ## Server_site_code_link : https://github.com/programming-hero-web-course1/manufacturer-website-server-side-neyaznafiz
 
 
-## About
+# About
  - This website about `phone parts`. You will get your needed phone parts easily here, and you can sell your product here easily as an `admin`. This website is very easy to use. ANd as coustomer you can order any parts easyly as much as you want. for pement we recive any type of `mastercart`.
 
 
@@ -26,6 +26,6 @@
  - On the `right side` of the `NAVBAR` you will see a `alphabet of the signed in user name` , after click on the alphabet you will see some information about the signed in user and here you you will see `LOG OUT` button.
 
 
- # Technology that use for this website
+ # Technologies that use for this website
 
  - This is a react application, I use for fontend `REACT` , `REACT ROUTER` , `REACT COUNTUP` , `REACT ICON` , `REACT QUERY` , `REACT TOASTIFY` , `AXIOS` , `TAILWIND` , `TAILWIND ELEMENT` , `MDB` , `DAISYUI` , and for backend `MONGODB` , `EXPRESS` , `CORS` , `DOTENV` , `JSONWEBTOKEN` , `NODEMON` , for server deploy I use `HEROKU`, and for user authentication and deploy live site I use `FIREBASE` .

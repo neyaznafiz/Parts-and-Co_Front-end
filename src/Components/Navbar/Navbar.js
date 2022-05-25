@@ -80,11 +80,11 @@ const Navbar = ({ children }) => {
                                         <span className='flex items-center font-semibold rounded hover:text-stone-800'> LOGIN </span>
                                     </Link>
                                     :
-                                    <div class="dropdown dropdown-end">
+                                    <div className="dropdown dropdown-end">
 
-                                        <p tabindex="0" class=" px-3 pb-1 shadow-none text-2xl font-bold border-2 border-black rounded-full">{user?.displayName.slice(0, 1)}</p>
+                                        <p tabIndex="0" className=" px-3 pb-1 shadow-none text-2xl font-bold border-2 border-black rounded-full">{user?.displayName.slice(0, 1)}</p>
 
-                                        <ul tabindex="0" class="dropdown-content menu p-2 border-2 border-stone-600 rounded-box mt-52">
+                                        <ul tabIndex="0" className="dropdown-content menu p-2 border-2 border-stone-600 rounded-box mt-52">
 
                                             <p className='text-center font-serif font-semibold'> {user?.displayName}</p>
                                             <p className='text-center my-2 font-semibold'> {user?.email}</p>
@@ -110,7 +110,7 @@ const Navbar = ({ children }) => {
                     {/* <!-- Sidebar content here --> */}
 
 
-<p className='text-3xl font-semibold py-1 text-center border-2 border-stone-600 rounded-full'>{user?.displayName.slice(0, 1)}</p>
+                    <p className='text-3xl font-semibold py-1 text-center border-2 border-stone-600 rounded-full'>{user?.displayName.slice(0, 1)}</p>
 
 
                     <li>

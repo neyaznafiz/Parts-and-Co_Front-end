@@ -7,15 +7,15 @@ const AllUsers = () => {
 
     const { data, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
         method: "GET",
-        headers:{
-            authorization : `Bearer ${localStorage.getItem('accessToken')}`
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()))
 
-    if(isLoading){
+    if (isLoading) {
         return <Loading></Loading>
     }
-   
+
 
     // console.log();
 
@@ -30,25 +30,25 @@ const AllUsers = () => {
     // }, [users])
     return (
         <div className='lg:w-full  p-20'>
-            <div class="">
-                <table class="table">
+            <div className="">
+                <table className="table">
                     <thead>
                         <tr>
                             {/* <th>SL</th> */}
                             <th className='text-xl font-bold'>EMAIL</th>
                             <th className='text-xl font-bold'>ADMIN BUTTON</th>
                             <th className='text-xl font-bold'>REMOVE BUTTON</th>
-                            
+
                         </tr>
                     </thead>
 
                     <tbody>
                         {
-                        data?.map(user => <DisplayAllUser
-                        key={user._id}
-                        user={user}
-                        refetch={refetch}
-                        ></DisplayAllUser>)
+                            data?.map(user => <DisplayAllUser
+                                key={user._id}
+                                user={user}
+                                refetch={refetch}
+                            ></DisplayAllUser>)
                         }
                     </tbody>
                 </table>

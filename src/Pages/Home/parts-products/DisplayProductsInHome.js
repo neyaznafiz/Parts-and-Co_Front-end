@@ -13,12 +13,12 @@ const DisplayProductsInHome = ({ product }) => {
     return (
         <div>
 
-            <div class="card lg:card-side shadow-2xl bg-transparent my-20">
+            <div className="card lg:card-side shadow-2xl bg-transparent my-20">
 
                 <figure><img src={img} alt="" className='lg:w-60 h-90' /></figure>
 
-                <div class="card-body">
-                    <h2 class="card-title text-stone-800">{name}</h2>
+                <div className="card-body">
+                    <h2 className="card-title text-stone-800">{name}</h2>
 
                     <p>{description?.slice(0, 110)}...</p>
 

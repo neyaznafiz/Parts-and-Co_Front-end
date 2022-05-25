@@ -2,47 +2,98 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../Firebase/firebase.init';
 
 const Purchase = () => {
 
     const { Id } = useParams()
-
     const [user] = useAuthState(auth)
-
     const [products, setProducts] = useState({})
-    console.log(products)
+
+    const { register, formState: { errors }, handleSubmit, getValues } = useForm()
+
     const { name, img, price, quantity, orderQuantity, description } = products
 
-    
-    const [newQuantity, setNewQuantity] = useState()
-    console.log(newQuantity);
 
-    const handleCoustomerOrderQuantity = event =>{
-        event.preventDefault()
-
-        const coustomerOrderQuantity = event.target.coustomerquantity.value
-        setNewQuantity(coustomerOrderQuantity)
-    }
+    const coustomerQuantityValue = getValues('coustomerQuantity')
+    console.log(coustomerQuantityValue);
+    const newPrice = coustomerQuantityValue * price
 
 
-    const { register, formState: { errors }, handleSubmit } = useForm()
 
+
+    // const [newQuantity, setNewQuantity] = useState(0)
+    // console.log(newQuantity);
+
+    // const [totalPrice, setTotalPrice] = useState(0)
+    // console.log(totalPrice);
+
+    // setTotalPrice(newPrice)
+    // console.log(newPrice);
+
+    // setNewQuantity(coustomerQuantityValue)
+
+
+    //     const handleCoustomerOrderQuantity = event => {
+    //         event.preventDefault()
+
+    //         const quantityValue = event.target.buyer-quantity.value
+    //         console.log(quantityValue);
+    //         // setNewQuantity()
+
+    //     }
+    // console.log(newQuantity);
+
+    // get product by id
     useEffect(() => {
-        const url = `http://localhost:5000/singleProduct/${Id}`
-        console.log(url);
+        if (Id) {
+            const url = `http://localhost:5000/singleProduct/${Id}`
+            console.log(url);
 
-        fetch(url)
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data)
+                    setProducts(data)
+                })
+        }
+
+    }, [Id])
+
+   
+
+    const handleAddToOrder = data => {
+
+
+        const OrderProduct = {
+            email: data?.email,
+            name: products?.name,
+            price: newPrice,
+            orderQuantity: coustomerQuantityValue,
+            phoneNumber: data.phoneNumber,
+            address: data.address,
+        }
+
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(OrderProduct)
+        })
             .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setProducts(data)
+            .then(addedProduct => {
+                console.log(addedProduct);
+                if (addedProduct.insertedId) {
+                    toast.success('Your order added successfully in MY OORDER. Go to Dashboard and MY ORDERS for payment. ')
+                }
+                else {
+                    toast.error('Faild to prossed order. Please try again.')
+                }
             })
 
-    }, [])
-
-
-    const handleAddToOrder = event => {
 
     }
 
@@ -52,20 +103,24 @@ const Purchase = () => {
 
             {Id ?
                 <div className=' lg:flex'>
-                    <div class="card lg:card-side shadow-2xl bg-transparent m-10 lg:w-[600px] lg:mx-auto lg:grid ">
+                    <div className="card lg:card-side shadow-2xl bg-transparent m-10 lg:w-[600px] lg:mx-auto lg:grid ">
 
                         <figure><img src={img} alt="" className='lg:w-60 h-90' /></figure>
 
-                        <div class="card-body">
-                            <h2 class="card-title text-stone-800">{name}</h2>
+                        <div className="card-body">
+                            <h2 className="card-title text-stone-800">{name}</h2>
 
                             <p>{description}</p>
+
+
+                            {/* quantity form */}
 
                             <div className='flex mx-auto gap-10 pt-2 text-lg'>
                                 <p className='font-semibold text-stone-700'>Available Quantity: {quantity}</p>
                                 <p className='font-semibold text-stone-700'>Price: ${price}/pcs</p>
                             </div>
                             <p className='font-semibold text-stone-700 text-center text-xl'>minimum order quantity: {orderQuantity}</p>
+
 
                         </div>
                     </div>
@@ -116,7 +171,7 @@ const Purchase = () => {
                             <div className="form-control w-full bg-transparent border-0">
                                 <label className="form-label">MINIMUM ORDER QUANTITY : {orderQuantity}</label>
                                 <input type="number"
-                                onBlur={ handleCoustomerOrderQuantity}
+                                    // onBlur={coustomerQuantityValue}
                                     className="input input-bordered w-full bg-transparent text-lg"
                                     {...register("coustomerQuantity", {
                                         required: {
@@ -132,11 +187,11 @@ const Purchase = () => {
 
 
                             {/* total price */}
-                            <div className="form-control w-full bg-transparent border-0">
+                            {/* <div className="form-control w-full bg-transparent border-0">
                                 <label className="form-label">TOTAL PRICE</label>
                                 <input type="number"
                                     className="input input-bordered w-full bg-transparent text-lg"
-                                    value={newQuantity * price}
+                                    // value={newQuantity * price}
                                     {...register("totalPrice", {
                                         required: {
                                             message: 'price is reqired'
@@ -146,7 +201,7 @@ const Purchase = () => {
                                     {errors.totalPrice?.type === 'required' && <span className="label-text-alt text-red-500">{errors.totalPrice.message}</span>}
                                 </label>
 
-                            </div>
+                            </div> */}
 
 
                             {/* phone number */}
@@ -192,7 +247,7 @@ const Purchase = () => {
                 </div>
                 :
                 <div>
-                    <div class="card lg:card-side shadow-2xl bg-transparent m-10 lg:w-[1200px] lg:mx-auto lg:grid p-10">
+                    <div className="card lg:card-side shadow-2xl bg-transparent m-10 lg:w-[1200px] lg:mx-auto lg:grid p-10">
 
                         <p className='text-3xl text-center uppercase'>Please go to product page and select a product to purchage.</p>
 

@@ -42,7 +42,7 @@ const AddProduct = () => {
                         description: data.description,
                         img: image
                     }
-                    //             // send to database
+                    // send to database
                     fetch('http://localhost:5000/product', {
                         method: 'POST',
                         headers: {

@@ -45,6 +45,8 @@ function App() {
 
             <Route path='/dashboard' element={<Dashboard></Dashboard>} >
               <Route path='myprofile' element={<MyProfile></MyProfile>} >
+              {/* <Route path='/editprofile' element={<EditProfile></EditProfile>} />
+              <Route path='/editprofile/:Id' element={<EditProfile></EditProfile>} /> */}
               </Route>
               <Route path='allusers' element={<AllUsers></AllUsers>} ></Route>
               <Route path='myorders' element={<MyOrders></MyOrders>} ></Route>
