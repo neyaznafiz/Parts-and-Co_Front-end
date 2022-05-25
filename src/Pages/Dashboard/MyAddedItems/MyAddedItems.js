@@ -18,7 +18,7 @@ const MyAddedItems = () => {
         const myAddedItems = async () => {
             const email = user.email;
             const url = `http://localhost:5000/myaddeditems?email=${email}`;
-            // const url = `http://localhost:5000/pareses`;
+
             try {
                 const { data } = await axios.get(url, {
                     headers: {

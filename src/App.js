@@ -22,7 +22,8 @@ import Purchase from './Pages/Purchase';
 import EditProfile from './Pages/Dashboard/MyProfile/EditProfile';
 import MyAddedItems from './Pages/Dashboard/MyAddedItems/MyAddedItems';
 import AllUsers from './Pages/Dashboard/AllUser/AllUsers';
-import MyReview from './Pages/Dashboard/MyReview';
+import MyReview from './Pages/Dashboard/MyReviews/MyReview';
+
 
 
 function App() {
