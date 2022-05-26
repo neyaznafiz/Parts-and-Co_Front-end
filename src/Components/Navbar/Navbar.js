@@ -82,7 +82,13 @@ const Navbar = ({ children }) => {
                                     :
                                     <div className="dropdown dropdown-end">
 
-                                        <p tabIndex="0" className=" px-3 pb-1 shadow-none text-2xl font-bold border-2 border-black rounded-full">{user?.displayName.slice(0, 1)}</p>
+                                        <div tabIndex="0" className=" pb-1 shadow-none rounded-full">
+
+                                            {user?.photoURL ?
+                                                <img class="w-9 rounded-full" src={user.photoURL} alt='I' /> : <h1 className="text-2xl font-bold border-2 border-black">{user.displayName.slice(0, 1)}</h1>
+                                            }
+
+                                        </div>
 
                                         <ul tabIndex="0" className="dropdown-content menu p-2 border-2 border-stone-600 rounded-box mt-52">
 
@@ -110,7 +116,9 @@ const Navbar = ({ children }) => {
                     {/* <!-- Sidebar content here --> */}
 
 
-                    <p className='text-3xl font-semibold py-1 text-center border-2 border-stone-600 rounded-full'>{user?.displayName.slice(0, 1)}</p>
+                    {/* {user?.photoURL ?
+                        <img class="w-14 mx-auto rounded-full" src={user.photoURL} alt='I' /> : <h1 className="text-2xl mx-auto font-bold border-2 border-black">{user.displayName.slice(0, 1)}</h1>
+                    } */}
 
 
                     <li>

@@ -9,42 +9,65 @@ import DisplayMyOrders from './DisplayMyOrders';
 const MyOrders = () => {
 
     const [user] = useAuthState(auth);
-    const [orders, setReviews] = useState([]);
-    const navigate = useNavigate();
+    const [orders, setOrders] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
 
-    const myaddedOrders = async () => {
-        const email = user.email;
+        const myaddedOrders = async () => {
+            const email = user.email;
 
-        try {
-            const { data } = await axios.get(`http://localhost:5000/myaddedorders?email=${email}`, {
-                headers: {
-                    authorization: ` Bearer ${localStorage.getItem('accessToken')}`
+            try {
+                const { data } = await axios.get(`http://localhost:5000/myaddedorders?email=${email}`, {
+                    headers: {
+                        authorization: ` Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                setOrders(data);
+            }
+            catch (error) {
+                console.log(error.message);
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate('/login')
                 }
-            });
-            setReviews(data);
-        }
-        catch (error) {
-            console.log(error.message);
-            if (error.response.status === 401 || error.response.status === 403) {
-                signOut(auth);
-                navigate('/login')
             }
         }
-    }
-    myaddedOrders();
+        myaddedOrders();
 
-}, [user])
+    }, [user])
+
+// cancle order
+    const handleOrderCancle = id => {
+        const proceed = window.confirm("Are you sure?");
+    
+        if (proceed) {
+          fetch(`http://localhost:5000/myorder/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              const remaining = orders.filter(
+                (InventoryItems) => InventoryItems._id !== id
+              );
+              setOrders(remaining);
+            });
+        }
+      };
 
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5' >
-           {
-               orders.map(order => <DisplayMyOrders
-               key={orders._id}
-               order={order}
-               ></DisplayMyOrders>)
-           }
+        <div>
+            <p className='text-2xl font-semibold py-5'> E-mail : {user.email}</p>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5' >
+                {
+                    orders.map(order => <DisplayMyOrders
+                        key={orders._id}
+                        order={order}
+                        handleOrderCancle={handleOrderCancle}
+                    ></DisplayMyOrders>)
+                }
+            </div>
+
         </div>
     );
 };

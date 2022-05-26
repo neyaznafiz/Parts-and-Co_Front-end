@@ -23,6 +23,8 @@ import EditProfile from './Pages/Dashboard/MyProfile/EditProfile';
 import MyAddedItems from './Pages/Dashboard/MyAddedItems/MyAddedItems';
 import AllUsers from './Pages/Dashboard/AllUser/AllUsers';
 import MyReview from './Pages/Dashboard/MyReviews/MyReview';
+import Payment from './Pages/Dashboard/Payment/Payment';
+// import Payment from './Pages/Dashboard/Payment/Payment';
 
 
 
@@ -50,6 +52,7 @@ function App() {
               </Route>
               <Route path='allusers' element={<AllUsers></AllUsers>} ></Route>
               <Route path='myorders' element={<MyOrders></MyOrders>} ></Route>
+              <Route path='payment/:Id' element={<Payment></Payment>} ></Route>
               <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>} ></Route>
               <Route path='addproduct' element={<AddProduct></AddProduct>} ></Route>
               <Route path='addareview' element={<AddaReview></AddaReview>} ></Route>

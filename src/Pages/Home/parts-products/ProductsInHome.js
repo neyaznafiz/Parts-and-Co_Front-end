@@ -16,7 +16,7 @@ const ProductsInHome = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 pb-10 px-10 '>
                 {
-                    products.slice(0, 3).map(product => <DisplayProductsInHome
+                    [...products].reverse().slice(0,3).map(product => <DisplayProductsInHome
                         key={product._id}
                         product={product}
                     />)

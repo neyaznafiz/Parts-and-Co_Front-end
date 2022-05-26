@@ -19,9 +19,9 @@ const Purchase = () => {
     
     
 
-    const coustomerQuantityValue = getValues('coustomerQuantity')
-    console.log(coustomerQuantityValue);
-    const newPrice = coustomerQuantityValue * price
+    // const coustomerQuantityValue = getValues('coustomerQuantity')
+    // console.log(coustomerQuantityValue);
+    // const newPrice = coustomerQuantityValue * price
     
 
     useEffect(() => {
@@ -47,11 +47,12 @@ const Purchase = () => {
         const OrderProduct = {
             email: data?.email,
             name: products?.name,
-            price: newPrice,
-            orderQuantity: coustomerQuantityValue,
+            totalPrice: data?.coustomerQuantity * parseInt(price),
+            orderQuantity: data?.coustomerQuantity,
             phoneNumber: data.phoneNumber,
             address: data.address,
         }
+
 
         fetch('http://localhost:5000/orders', {
             method: 'POST',

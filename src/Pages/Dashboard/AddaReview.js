@@ -45,17 +45,15 @@ const AddaReview = () => {
         <div>
 
 
-            <div className="card lg:w-[500px] lg:h-[500px] bg-base-100 shadow-xl mx-auto items-center mb-20 bg-transparent">
+            <div className="card lg:w-[500px]  bg-base-100 shadow-xl mx-auto items-center mb-20 bg-transparent">
                 <div className="card-body w-full">
                     <h2 className="text-center text-2xl font-bold pb-7">WELCOME TO REVIEW SECTION</h2>
                     <div>
 
                         <div className=' items-center'>
 
-                           
-
                             <form onSubmit={handleSubmit(handleAddReview)} >
-                                <div className="form-control  max-w-xs bg-transparent border-0">
+                                <div className="form-control  bg-transparent border-0">
                                     <label className="label">
                                         <span className="label-text">TYPE YOUR REVIEW</span>
                                     </label>
