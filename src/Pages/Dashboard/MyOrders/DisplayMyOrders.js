@@ -13,7 +13,7 @@ const DisplayMyOrders = ({ order, handleOrderCancle }) => {
     console.log(transactionId);
 
     useEffect(() => {
-        fetch('http://localhost:5000/paidproduct')
+        fetch('https://sheltered-inlet-94910.herokuapp.com/paidproduct')
             .then(res => res.json())
             .then(data => {
                 setPaid(data)
