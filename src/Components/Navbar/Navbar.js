@@ -84,10 +84,10 @@ const Navbar = ({ children }) => {
 
                                         <div tabIndex="0" className=" pb-1 shadow-none rounded-full">
 
-                                            if(user?.photoURL){
+                                            {user?.photoURL &&
                                                 <img className="w-9 rounded-full" src={user?.photoURL} alt='I' />
                                             }
-                                            else{
+                                            {!user?.photoURL &&
                                                 <h1 className="text-2xl font-bold border-2 rounded-full px-3 border-black">{user?.displayName?.slice(0, 1)}</h1>
                                             }
 
