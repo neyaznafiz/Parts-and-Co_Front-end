@@ -27,19 +27,19 @@ const Payment = () => {
   return (
     <div className='w-full'>
 
-      <div class="hero w-full">
-        <div class="grid gap-y-5 mx-2">
+      <div className="hero w-full">
+        <div className="grid gap-y-5 mx-2">
 
-          <div class="card shadow-2xl bg-transparent">
-            <div class="card-body ">
-              <h2 class="card-title">Please pay for : {product?.name}</h2>
+          <div className="card shadow-2xl bg-transparent">
+            <div className="card-body ">
+              <h2 className="card-title">Please pay for : {product?.name}</h2>
               <p> Please Pay : ${product.totalPrice}</p>
               <p> Delivery Address : {product.address}</p>
             </div>
           </div>
 
-          <div class="card lg:w-[500px] shadow-2xl bg-transparent">
-            <div class="card-body">
+          <div className="card lg:w-[500px] shadow-2xl bg-transparent">
+            <div className="card-body">
 
               <Elements stripe={stripePromise}>
                 <CheckoutForm product={product} />

@@ -6,8 +6,8 @@ const DisplayManageOrder = ({ manageOrder }) => {
 
     return (
         <div >
-            <div class="card bg-transparent shadow-2xl text-neutral-content">
-                <div class="card-body items-center text-stone-600">
+            <div className="card bg-transparent shadow-2xl text-neutral-content">
+                <div className="card-body items-center text-stone-600">
 
                     <div className='w-full mb-5'>
                         <div>
@@ -25,15 +25,15 @@ const DisplayManageOrder = ({ manageOrder }) => {
                             <p className='text-xl my-2 border-b font-semibold'>COUSTOMER INFORMATION</p>
                         </div>
                         <div className=''>
-                        <p className='font-semibold'>COUSTOMER EMAIL : {email}</p>
-                        <p className='font-semibold'>COUSTOMER PHONE : {phoneNumber}</p>
-                        <p className='font-semibold'>COUSTOMER ADDRESS : {address}</p>
+                            <p className='font-semibold'>COUSTOMER EMAIL : {email}</p>
+                            <p className='font-semibold'>COUSTOMER PHONE : {phoneNumber}</p>
+                            <p className='font-semibold'>COUSTOMER ADDRESS : {address}</p>
                         </div>
                     </div>
 
-                 
 
-                        {/* <div className='flex gap-x-5'>
+
+                    {/* <div className='flex gap-x-5'>
                     <button onClick={()=> handleOrderCancle(_id)} className="btn btn-outline  mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black"> CANCEL </button>
                     {(totalPrice) && 
                         <Link to={`/dashboard/payment/${_id}`} className="btn btn-outline mx-auto px-7 py-1 rounded-md hover:bg-transparent hover:text-black"> PAY </Link>
@@ -41,11 +41,11 @@ const DisplayManageOrder = ({ manageOrder }) => {
                     {/* {(totalPrice && paid) &&
                         <span className='text-green-400'>PAID</span>
                         } */}
-                        {/* </div> */}
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
-        
+        </div>
+
     );
 };
 
