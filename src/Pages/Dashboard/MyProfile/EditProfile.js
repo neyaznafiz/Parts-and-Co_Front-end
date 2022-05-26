@@ -86,7 +86,7 @@ const EditProfile = () => {
                                                     </label>
                                                 </div>
 
-                                                
+
                                                 {/* Institution Name  */}
                                                 <div className="form-control bg-transparent border-0">
 
@@ -153,7 +153,7 @@ const EditProfile = () => {
                                                 </div>
 
                                                 <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                    <input type="submit" value='ADD PRODUCT' className="btn btn-outline w-full px-3 py-1 rounded-md hover:bg-transparent hover:text-black" />
+                                                    <input type="submit" value='ADD INFORMATION' className="btn btn-outline w-full px-3 py-1 rounded-md hover:bg-transparent hover:text-black" />
                                                 </div>
 
                                             </form>
