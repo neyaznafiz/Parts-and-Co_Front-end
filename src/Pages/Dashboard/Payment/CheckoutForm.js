@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
-import { async } from '@firebase/util'
+import Loading from '../../../Components/Shared/Loading';
+// import { async } from '@firebase/util'
 
 const CheckoutForm = ({ product }) => {
 
@@ -11,9 +12,11 @@ const CheckoutForm = ({ product }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
+
     console.log(clientSecret);
 
-    const {_id, price, email, name } = product
+    const {_id, totalPrice, email, name } = product
+    console.log(totalPrice)
 
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
@@ -22,7 +25,7 @@ const CheckoutForm = ({ product }) => {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({ price })
+            body: JSON.stringify({ totalPrice })
         })
             .then(res => res.json())
             .then(data => {
@@ -31,7 +34,7 @@ const CheckoutForm = ({ product }) => {
                 }
             });
 
-    }, [price])
+    }, [totalPrice])
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -67,6 +70,10 @@ const CheckoutForm = ({ product }) => {
                 },
 
             });
+
+            if(processing){
+                return <Loading></Loading>
+            }
 
         if (intentError) {
             setCardError(intentError?.message);
@@ -132,9 +139,9 @@ return (
         {
             cardError && <p className='text-red-500'>{cardError}</p>
         }
-        {success && <div className='text-green-500'>
-            <p>{success}  </p>
-            <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span> </p>
+        {success && <div className='text-stone-800 '>
+            <p className='text-green-800'>{success}  </p>
+            <p className='text-lg '>Your Transaction Id : <span className="font-bold">{transactionId}</span> </p>
         </div>
         }
     </>

@@ -6,7 +6,7 @@ const useProducts = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/product')
+        fetch('https://sheltered-inlet-94910.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setProducts(data))
 

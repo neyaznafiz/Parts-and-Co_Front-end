@@ -33,7 +33,7 @@ const Payment = () => {
           <div class="card shadow-2xl bg-transparent">
             <div class="card-body ">
               <h2 class="card-title">Please pay for : {product?.name}</h2>
-              <p> Please Pay : {product.totalPrice}</p>
+              <p> Please Pay : ${product.totalPrice}</p>
               <p> Delivery Address : {product.address}</p>
             </div>
           </div>

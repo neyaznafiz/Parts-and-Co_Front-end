@@ -5,17 +5,38 @@ import DisplayAllUser from './DisplayAllUser';
 
 const AllUsers = () => {
 
+    const [user, setUser] = useState()
+
     const { data, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
         method: "GET",
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()))
-
+   
     if (isLoading) {
         return <Loading></Loading>
     }
 
+
+    const handleDeleteUser = (id) => {
+        const proceed = window.confirm("Are you sure?");
+
+        if (proceed) {
+
+            const url = `http://localhost:5000/myproduct/${id}`;
+            fetch(url, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    const remaining = user.filter(
+                        (InventoryItems) => InventoryItems._id !== id
+                    );
+                    setUser(remaining);
+                });
+        }
+    };
 
     // console.log();
 
@@ -48,6 +69,7 @@ const AllUsers = () => {
                                 key={user._id}
                                 user={user}
                                 refetch={refetch}
+                                handleDeleteUser={handleDeleteUser}
                             ></DisplayAllUser>)
                         }
                     </tbody>

@@ -16,7 +16,7 @@ import PrivateRoute from './Routes/PrivateRoute';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
 import AddaReview from './Pages/Dashboard/AddaReview';
-import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 import AllProducts from './Pages/Products/AllProducts';
 import Purchase from './Pages/Purchase/Purchase';
 import EditProfile from './Pages/Dashboard/MyProfile/EditProfile';
@@ -52,6 +52,7 @@ function App() {
               </Route>
               <Route path='allusers' element={<AllUsers></AllUsers>} ></Route>
               <Route path='myorders' element={<MyOrders></MyOrders>} ></Route>
+              {/* <Route path='myorders/:Id' element={<MyOrders></MyOrders>} ></Route> */}
               <Route path='payment/:Id' element={<Payment></Payment>} ></Route>
               <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>} ></Route>
               <Route path='addproduct' element={<AddProduct></AddProduct>} ></Route>

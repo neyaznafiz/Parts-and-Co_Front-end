@@ -5,10 +5,9 @@ import DisplayReviewHome from './DisplayReviewHome';
 const ReviewInHome = () => {
 
     const [reviewsHome, setReviewsHome] = useState([])
-    console.log(reviewsHome);
+    // console.log(reviewsHome);
 
     useEffect(() => {
-
         fetch('http://localhost:5000/allreview')
             .then(res => res.json())
             .then(data => setReviewsHome(data))

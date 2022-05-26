@@ -85,7 +85,7 @@ const Navbar = ({ children }) => {
                                         <div tabIndex="0" className=" pb-1 shadow-none rounded-full">
 
                                             {user?.photoURL ?
-                                                <img class="w-9 rounded-full" src={user.photoURL} alt='I' /> : <h1 className="text-2xl font-bold border-2 border-black">{user.displayName.slice(0, 1)}</h1>
+                                                <img class="w-9 rounded-full" src={user.photoURL} alt='I' /> : <h1 className="text-2xl font-bold border-2 rounded-full px-3 border-black">{user.displayName.slice(0, 1)}</h1>
                                             }
 
                                         </div>

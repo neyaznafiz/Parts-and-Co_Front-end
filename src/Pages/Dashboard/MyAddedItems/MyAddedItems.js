@@ -11,7 +11,7 @@ const MyAddedItems = () => {
 
 
     const [user] = useAuthState(auth);
-    const [ product, setProduct] = useState([]);
+    const [product, setProduct] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
 
@@ -62,11 +62,11 @@ const MyAddedItems = () => {
 
 
     return (
-        <div className='px-20'>
+        <div className='lg:px-20'>
 
-            <h1 className='text-center mx-auto text-4xl mb-5 font-bold border-b-2 border-zinc-600 w-6/12'>My Added Items{product.length}</h1>
+            <h1 className='text-center pb-2 mx-auto text-4xl mb-5 font-bold border-b-2 border-zinc-600 lg:w-6/12'>MY ADDED PRODUCTS - {product.length}</h1>
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-20 mt-60 pb-10 px-10' >
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-20 pb-10 px-10' >
                 {
                     product.map(product => <DisplayMyAddedItems
                         key={product._id}

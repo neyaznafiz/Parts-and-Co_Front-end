@@ -6,13 +6,13 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const MyProfile = () => {
 
-    // const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth)
     // console.log(user)
-    // const { displayName, email } = user
+    const {photoURL, displayName, email } = user
 
     // const navigate = useNavigate()
     // const navigateToPurchase = id => {
-    //     navigate(`/purchase/${_id}`)
+    //     navigate(`/purchase/${user._id}`)
     // }
 
 
@@ -34,14 +34,17 @@ const MyProfile = () => {
                         <div className='pr-44'>
                             <div className="avatar pt-52">
                                 <div className="w-44 mask mask-hexagon">
-                                    <img src="https://api.lorem.space/image/face?hash=55350" alt='' />
+                                    {/* <img src={photoURL} alt='' /> */}
+                                    {photoURL ?
+                                                <img src={user.photoURL} alt='I' /> : <h1 className="text-9xl font-bold border-2 rounded-full px-3 border-black">{user.displayName.slice(0, 1)}</h1>
+                                            }
                                 </div>
                             </div>
 
                         </div>
-{/* 
+
                         <p className='text-lg font-semibold py-2'> NAME : {displayName} </p>
-                        <p className='text-lg font-semibold py-2'> EMAIL : {email} </p> */}
+                        <p className='text-lg font-semibold py-2'> EMAIL : {email} </p>
                     </div>
 
                 </div>

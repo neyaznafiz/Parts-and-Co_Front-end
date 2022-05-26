@@ -1,9 +1,9 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const DisplayAllUser = ({ user, refetch }) => {
+const DisplayAllUser = ({ user, refetch, handleDeleteUser }) => {
 
-    const { email, role } = user
+    const {_id, email, role } = user
 
     const makeAdmin = () => {
 
@@ -39,7 +39,7 @@ const DisplayAllUser = ({ user, refetch }) => {
                 }
             </td>
             <td>
-                <input type="submit" value='REMOVE USER' className="border px-3 py-1 rounded-md hover:bg-white hover:text-black" />
+                <input type="submit" onClick={()=> handleDeleteUser(_id)} value='REMOVE USER' className="border px-3 py-1 rounded-md hover:bg-white hover:text-black" />
             </td>
         </tr>
 
