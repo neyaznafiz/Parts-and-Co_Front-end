@@ -3,11 +3,11 @@ import { toast } from 'react-toastify';
 
 const DisplayAllUser = ({ user, refetch, handleDeleteUser }) => {
 
-    const {_id, email, role } = user
+    const { _id, email, role } = user
 
     const makeAdmin = () => {
 
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://sheltered-inlet-94910.herokuapp.com/user/admin/${email}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -39,7 +39,7 @@ const DisplayAllUser = ({ user, refetch, handleDeleteUser }) => {
                 }
             </td>
             <td>
-                <input type="submit" onClick={()=> handleDeleteUser(_id)} value='REMOVE USER' className="border px-3 py-1 rounded-md hover:bg-white hover:text-black" />
+                <input type="submit" onClick={() => handleDeleteUser(_id)} value='REMOVE USER' className="border px-3 py-1 rounded-md hover:bg-white hover:text-black" />
             </td>
         </tr>
 

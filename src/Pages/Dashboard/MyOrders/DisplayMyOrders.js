@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
-const DisplayMyOrders = ({ order,  handleOrderCancle }) => {
+const DisplayMyOrders = ({ order, handleOrderCancle }) => {
 
     const { _id, email, name, totalPrice, orderQuantity, phoneNumber, address } = order
+
+
+    const [paid, setPaid] = useState([])
+
+    const { transactionId } = paid
+    console.log(transactionId);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/paidproduct')
+            .then(res => res.json())
+            .then(data => {
+                setPaid(data)
+            })
+    }, [])
+
+
 
     return (
         <div >
@@ -12,18 +29,21 @@ const DisplayMyOrders = ({ order,  handleOrderCancle }) => {
                     <h2 class="card-title ">{name}</h2>
                     <p className='font-semibold'>ORDER QUANTITY : {orderQuantity}</p>
                     <p className='font-semibold'>TOTAL PRICE : ${totalPrice}</p>
-                    <div class="card-actions justify-end">
-                       
-                    <div className='flex gap-x-5'>
-                    <button onClick={()=> handleOrderCancle(_id)} className="btn btn-outline  mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black"> CANCEL </button>
-                    {totalPrice  && 
-                        <Link to={`/dashboard/payment/${_id}`} className="btn btn-outline mx-auto px-7 py-1 rounded-md hover:bg-transparent hover:text-black"> PAY </Link>
+                    {/* <div class="card-actions justify-end"> */}
+
+                        {!transactionId ?
+                            <div className='flex gap-x-5'>
+                                <button onClick={() => handleOrderCancle(_id)} className="btn btn-outline  mx-auto px-3 py-1 rounded-md hover:bg-transparent hover:text-black"> CANCEL </button>
+                                {totalPrice &&
+                                    <Link to={`/dashboard/payment/${_id}`} className="btn btn-outline mx-auto px-7 py-1 rounded-md hover:bg-transparent hover:text-black"> PAY </Link>
+                                }
+                            </div>
+                            :
+                            <div>
+                                <p>YOUR TRANSACTION ID IS : {transactionId}</p>
+                            </div>
                         }
-                    {/* {(totalPrice && paid) &&
-                        <span className='text-green-400'>PAID</span>
-                        } */}
-                    </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         </div>

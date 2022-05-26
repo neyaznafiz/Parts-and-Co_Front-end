@@ -16,17 +16,17 @@ const Purchase = () => {
     const { name, img, price, quantity, orderQuantity, description } = products
 
 
-    
-    
+
+
 
     // const coustomerQuantityValue = getValues('coustomerQuantity')
     // console.log(coustomerQuantityValue);
     // const newPrice = coustomerQuantityValue * price
-    
+
 
     useEffect(() => {
         if (Id) {
-            const url = `http://localhost:5000/singleProduct/${Id}`
+            const url = `https://sheltered-inlet-94910.herokuapp.com/singleProduct/${Id}`
             console.log(url);
 
             fetch(url)
@@ -39,7 +39,7 @@ const Purchase = () => {
 
     }, [Id])
 
-   
+
 
     const handleAddToOrder = data => {
 
@@ -54,7 +54,7 @@ const Purchase = () => {
         }
 
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://sheltered-inlet-94910.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

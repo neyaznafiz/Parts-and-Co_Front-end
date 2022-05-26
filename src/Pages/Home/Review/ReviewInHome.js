@@ -8,7 +8,7 @@ const ReviewInHome = () => {
     // console.log(reviewsHome);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allreview')
+        fetch('https://sheltered-inlet-94910.herokuapp.com/allreview')
             .then(res => res.json())
             .then(data => setReviewsHome(data))
 
@@ -24,7 +24,7 @@ const ReviewInHome = () => {
 
                     <div >
                         {
-                            [...reviewsHome].reverse().slice(0,6).map(homeReview => <DisplayReviewHome
+                            [...reviewsHome].reverse().slice(0, 6).map(homeReview => <DisplayReviewHome
                                 key={homeReview._id}
                                 homeReview={homeReview}
                             ></DisplayReviewHome>)

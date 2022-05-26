@@ -18,7 +18,7 @@ const MyReview = () => {
             const email = user.email;
 
             try {
-                const { data } = await axios.get(`http://localhost:5000/myaddedreview?email=${email}`, {
+                const { data } = await axios.get(`https://sheltered-inlet-94910.herokuapp.com/myaddedreview?email=${email}`, {
                     headers: {
                         authorization: ` Bearer ${localStorage.getItem('accessToken')}`
                     }

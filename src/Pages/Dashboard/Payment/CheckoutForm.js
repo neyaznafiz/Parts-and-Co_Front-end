@@ -15,11 +15,11 @@ const CheckoutForm = ({ product }) => {
 
     console.log(clientSecret);
 
-    const {_id, totalPrice, email, name } = product
+    const { _id, totalPrice, email, name } = product
     console.log(totalPrice)
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://sheltered-inlet-94910.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -71,9 +71,9 @@ const CheckoutForm = ({ product }) => {
 
             });
 
-            if(processing){
-                return <Loading></Loading>
-            }
+        if (processing) {
+            return <Loading></Loading>
+        }
 
         if (intentError) {
             setCardError(intentError?.message);
@@ -91,7 +91,7 @@ const CheckoutForm = ({ product }) => {
                 product: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/myaddedorders/${_id}`, {
+            fetch(`https://sheltered-inlet-94910.herokuapp.com/myaddedorders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -110,42 +110,42 @@ const CheckoutForm = ({ product }) => {
     }
 
 
-return (
-    <>
+    return (
+        <>
 
-        <form onSubmit={handleSubmit} className='py-4'>
-            <CardElement
-                options={{
-                    style: {
-                        base: {
-                            fontSize: '16px',
-                            color: '#322d27',
-                            '::placeholder': {
+            <form onSubmit={handleSubmit} className='py-4'>
+                <CardElement
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: '16px',
+                                color: '#322d27',
+                                '::placeholder': {
+                                    color: '#322d27',
+                                },
+                            },
+                            invalid: {
                                 color: '#322d27',
                             },
                         },
-                        invalid: {
-                            color: '#322d27',
-                        },
-                    },
-                }}
-            />
+                    }}
+                />
 
-            <div className='flex justify-end w-full mt-5'>
-                <button type="submit" disabled={!stripe || !clientSecret} className="btn btn-outline px-16 rounded-full hover:bg-transparent hover:text-black"> PAY </button>
+                <div className='flex justify-end w-full mt-5'>
+                    <button type="submit" disabled={!stripe || !clientSecret} className="btn btn-outline px-16 rounded-full hover:bg-transparent hover:text-black"> PAY </button>
+                </div>
+            </form>
+
+            {
+                cardError && <p className='text-red-500'>{cardError}</p>
+            }
+            {success && <div className='text-stone-800 '>
+                <p className='text-green-800'>{success}  </p>
+                <p className='text-lg '>Your Transaction Id : <span className="font-bold">{transactionId}</span> </p>
             </div>
-        </form>
-
-        {
-            cardError && <p className='text-red-500'>{cardError}</p>
-        }
-        {success && <div className='text-stone-800 '>
-            <p className='text-green-800'>{success}  </p>
-            <p className='text-lg '>Your Transaction Id : <span className="font-bold">{transactionId}</span> </p>
-        </div>
-        }
-    </>
-);
+            }
+        </>
+    );
 };
 
 export default CheckoutForm;

@@ -7,13 +7,13 @@ const AllUsers = () => {
 
     const [user, setUser] = useState()
 
-    const { data, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data, isLoading, refetch } = useQuery('users', () => fetch('https://sheltered-inlet-94910.herokuapp.com/users', {
         method: "GET",
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()))
-   
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -24,7 +24,7 @@ const AllUsers = () => {
 
         if (proceed) {
 
-            const url = `http://localhost:5000/myproduct/${id}`;
+            const url = `https://sheltered-inlet-94910.herokuapp.com/myproduct/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
@@ -44,7 +44,7 @@ const AllUsers = () => {
     // useEffect(() => {
     //     // console.log(user.email);
 
-    //     fetch('http://localhost:5000/users')
+    //     fetch('https://sheltered-inlet-94910.herokuapp.com/users')
     //         .then(res => res.json())
     //         .then(data => setUsers(data))
 

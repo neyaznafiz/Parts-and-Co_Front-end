@@ -20,7 +20,7 @@ const AddaReview = () => {
             review: data.review
         }
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://sheltered-inlet-94910.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -83,18 +83,18 @@ const AddaReview = () => {
                                     </label>
                                 </div>
 
-                            <div className='flex justify-center mb-3'>
-                            <StarRating></StarRating>
-                            </div>
+                                <div className='flex justify-center mb-3'>
+                                    <StarRating></StarRating>
+                                </div>
 
-                        <div className='grid mx-auto'>
-                            <input type="submit" value='POST REVIEW' className="btn btn-outline w-40 px-3 py-1 mx-auto rounded-md hover:bg-transparent hover:text-black" />
+                                <div className='grid mx-auto'>
+                                    <input type="submit" value='POST REVIEW' className="btn btn-outline w-40 px-3 py-1 mx-auto rounded-md hover:bg-transparent hover:text-black" />
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
 
-            </div>
-        </div>
+                    </div>
+                </div>
             </div >
         </div >
     );

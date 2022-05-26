@@ -21,7 +21,7 @@ const MyOrders = () => {
             const email = user.email;
 
             try {
-                const { data } = await axios.get(`http://localhost:5000/myaddedorders?email=${email}`, {
+                const { data } = await axios.get(`https://sheltered-inlet-94910.herokuapp.com/myaddedorders?email=${email}`, {
                     headers: {
                         authorization: ` Bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -47,7 +47,7 @@ const MyOrders = () => {
         const proceed = window.confirm("Are you sure?");
 
         if (proceed) {
-            fetch(`http://localhost:5000/myorder/${id}`, {
+            fetch(`https://sheltered-inlet-94910.herokuapp.com/myorder/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
