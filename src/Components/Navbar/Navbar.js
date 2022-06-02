@@ -23,7 +23,7 @@ const Navbar = ({ children }) => {
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
-                <div className="w-full navbar bg-base-300 px-10">
+                <div className="w-full navbar px-10">
 
                     {/* dashboard drawer button */}
                     {pathname.includes('dashboard') && (

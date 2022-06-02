@@ -3,16 +3,16 @@ import Footer from '../Components/Shared/Footer';
 
 const Blog = () => {
     return (
-        <div>
+        <div className='bg-stone-500'>
 
-            <div className='py-10 text-center text-2xl font-semibold'>
+            <div className='py-10 text-center text-stone-800 text-2xl font-semibold'>
                 <p>Explore some Question and Answer</p>
             </div>
 
             <div className='shadow-2xl lg:mx-96 rounded-md'>
-                <div className="accordion accordion-flush " id="accordionFlushExample">
+                <div className="accordion accordion-flush" id="accordionFlushExample">
 
-                    <div className="accordion-item">
+                    <div className="accordion-item bg-transparent text-stone-800">
                         <h2 className="accordion-header" id="flush-headingOne">
                             <button
                                 className="accordion-button collapsed"
@@ -22,7 +22,7 @@ const Blog = () => {
                                 aria-expanded="false"
                                 aria-controls="flush-collapseOne"
                             >
-                                <span className='font-semibold'> How does prototypical inheritance work? </span>
+                                <span className='font-semibold text-stone-800'> How does prototypical inheritance work? </span>
                             </button>
                         </h2>
                         <div
@@ -37,7 +37,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div className="accordion-item">
+                    <div className="accordion-item bg-transparent text-stone-800">
                         <h2 className="accordion-header" id="flush-headingTwo">
                             <button
                                 className="accordion-button collapsed"
@@ -47,7 +47,7 @@ const Blog = () => {
                                 aria-expanded="false"
                                 aria-controls="flush-collapseTwo"
                             >
-                                <span className="font-semibold"> What is a unit test? Why should write unit tests? </span>
+                                <span className="font-semibold text-stone-800"> What is a unit test? Why should write unit tests? </span>
                             </button>
                         </h2>
                         <div
@@ -62,7 +62,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div className="accordion-item">
+                    <div className="accordion-item bg-transparent text-stone-800">
                         <h2 className="accordion-header" id="flush-headingThree">
                             <button
                                 className="accordion-button collapsed"
@@ -72,7 +72,7 @@ const Blog = () => {
                                 aria-expanded="false"
                                 aria-controls="flush-collapseThree"
                             >
-                                <span className="font-semibold"> How will you improve the performance of a React Application? </span>
+                                <span className="font-semibold text-stone-800"> How will you improve the performance of a React Application? </span>
                             </button>
                         </h2>
                         <div
@@ -87,7 +87,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div className="accordion-item">
+                    <div className="accordion-item bg-transparent text-stone-800">
                         <h2 className="accordion-header" id="flush-headingFour">
                             <button
                                 className="accordion-button collapsed"
@@ -97,7 +97,7 @@ const Blog = () => {
                                 aria-expanded="false"
                                 aria-controls="flush-collapseFour"
                             >
-                                <span className="font-semibold"> What are the different ways to manage a state in a React application? </span>
+                                <span className="font-semibold text-stone-800"> What are the different ways to manage a state in a React application? </span>
                             </button>
                         </h2>
                         <div
@@ -116,7 +116,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div className="accordion-item">
+                    <div className="accordion-item bg-transparent text-stone-800">
                         <h2 className="accordion-header" id="flush-headingFive">
                             <button
                                 className="accordion-button collapsed"
@@ -126,7 +126,7 @@ const Blog = () => {
                                 aria-expanded="false"
                                 aria-controls="flush-collapseFive"
                             >
-                                <span className="font-semibold"> You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name? </span>
+                                <span className="font-semibold text-stone-800"> You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name? </span>
                             </button>
                         </h2>
                         <div
@@ -148,7 +148,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div className="accordion-item">
+                    <div className="accordion-item bg-transparent text-stone-800">
                         <h2 className="accordion-header" id="flush-headingSix">
                             <button
                                 className="accordion-button collapsed"
@@ -158,7 +158,7 @@ const Blog = () => {
                                 aria-expanded="false"
                                 aria-controls="flush-collapseSix"
                             >
-                                <span className="font-semibold"> Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts. </span>
+                                <span className="font-semibold text-stone-800"> Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts. </span>
                             </button>
                         </h2>
                         <div
