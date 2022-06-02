@@ -10,7 +10,7 @@ const DisplayMyOrders = ({ order, handleOrderCancle }) => {
     const [paid, setPaid] = useState([])
 
     const { transactionId } = paid
-    console.log(transactionId);
+    // console.log(transactionId);
 
     useEffect(() => {
         fetch('https://sheltered-inlet-94910.herokuapp.com/paidproduct')

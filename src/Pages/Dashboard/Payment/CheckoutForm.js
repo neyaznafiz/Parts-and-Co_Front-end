@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import Loading from '../../../Components/Shared/Loading';
-// import { async } from '@firebase/util'
+
 
 const CheckoutForm = ({ product }) => {
 

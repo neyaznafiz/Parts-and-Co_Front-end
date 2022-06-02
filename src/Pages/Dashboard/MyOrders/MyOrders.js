@@ -42,12 +42,12 @@ const MyOrders = () => {
 
     // cancle order
     const handleOrderCancle = id => {
-        console.log(id);
+        // console.log(id);
 
         const proceed = window.confirm("Are you sure?");
 
         if (proceed) {
-            fetch(`https://sheltered-inlet-94910.herokuapp.com/myorder/${id}`, {
+            fetch(`http://sheltered-inlet-94910.herokuapp.com/myorders/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
