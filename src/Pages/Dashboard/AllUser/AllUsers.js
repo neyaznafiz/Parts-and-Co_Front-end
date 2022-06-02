@@ -34,7 +34,7 @@ const AllUsers = () => {
                 .then((data) => {
                     // console.log(data);
                     const remaining = user?.filter(
-                        (InventoryItems) => InventoryItems._id !== id
+                        (userCollection) => userCollection._id !== id
                     );
                     setUser(remaining);
                 

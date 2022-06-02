@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import banner from '../../Asstes/Images/banner.png'
 
 const Banner = () => {
@@ -24,7 +25,7 @@ const Banner = () => {
 
                     <p className="py-6 pr-32 text-xl lg:w-[800px]">This is a mobile parts website. You can seel and buy mobile parts from heere. It's a wholeseel place. Here you can sell your product or buy anything very easily. Just get admin id and upload your product.</p>
 
-                    <a href="https://github.com/neyaznafiz" className='border-b border-stone-600 pr-3 flex w-[260px] text-center text-stone-800 hover:text-stone-600'> <span className='flex gap-2 text-[20px] font-semibold'>EXPLORE PPRODUCTS <AiOutlineArrowRight className='mt-1 ' /> </span> </a>
+                    <Link to='/allproducts' className='border-b border-stone-600 pr-3 flex w-[260px] text-center text-stone-800 hover:text-stone-600'> <span className='flex gap-2 text-[20px] font-semibold'>EXPLORE PPRODUCTS <AiOutlineArrowRight className='mt-1 ' /> </span> </Link>
                 </div>
             </div>
         </div>
