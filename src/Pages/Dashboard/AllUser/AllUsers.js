@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import Loading from '../../../Components/Shared/Loading';
+import auth from '../../../Firebase/firebase.init';
 import DisplayAllUser from './DisplayAllUser';
 
 const AllUsers = () => {
 
-    const [user, setUser] = useState()
+    const [user, setUser] = useAuthState(auth)
 
     const { data, isLoading, refetch } = useQuery('users', () => fetch('https://sheltered-inlet-94910.herokuapp.com/users', {
         method: "GET",
@@ -24,16 +26,18 @@ const AllUsers = () => {
 
         if (proceed) {
 
-            const url = `https://sheltered-inlet-94910.herokuapp.com/myproduct/${id}`;
+            const url = `https://sheltered-inlet-94910.herokuapp.com/user/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    const remaining = user.filter(
+                    // console.log(data);
+                    const remaining = user?.filter(
                         (InventoryItems) => InventoryItems._id !== id
                     );
                     setUser(remaining);
+                
                 });
         }
     };

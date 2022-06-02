@@ -54,9 +54,9 @@ const MyOrders = () => {
                 .then((data) => {
                     const remaining = orders.filter(
                         (InventoryItems) => InventoryItems._id !== id
-                    );
+                    )
                     setOrders(remaining);
-                });
+                })
         }
     };
 
