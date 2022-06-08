@@ -5,17 +5,19 @@ import { Link } from 'react-router-dom';
 const DisplayMyOrders = ({ order, handleOrderCancle }) => {
 
     const { _id, email, name, totalPrice, orderQuantity, phoneNumber, address } = order
-
-
+    
+    
     const [paid, setPaid] = useState([])
+    console.log(paid)
 
     const { transactionId } = paid
-    // console.log(transactionId);
+    console.log(transactionId);
 
     useEffect(() => {
-        fetch('https://sheltered-inlet-94910.herokuapp.com/paidproduct')
+        fetch('http://localhost:5000/paidproduct')
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 setPaid(data)
             })
     }, [])

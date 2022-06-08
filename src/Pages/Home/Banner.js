@@ -9,16 +9,10 @@ const Banner = () => {
 
             <div className="hero-content flex-col lg:flex-row-reverse">
 
-                <div className="mockup-phone">
-                    <div className="camera"></div>
-                    <div className="display">
-
-                        <div className="artboard artboard-demo phone-1 bg-stone-400">
-                            <img src={banner} alt="" className='h-72 w-[300px] ' />
+                
+                        <div className="bg-stone-400">
+                            <img src={banner} alt="" className='h-[600px] ' />
                         </div>
-
-                    </div>
-                </div>
 
                 <div>
                     <h1 className="text-5xl font-bold text-stone-800">Welcome to Parts & Co.</h1>

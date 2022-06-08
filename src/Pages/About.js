@@ -1,9 +1,10 @@
 import React from 'react';
+// import '../Style/style.css'
 
 const About = () => {
     return (
         <div>
-            <h2>this is about</h2>
+         
         </div>
     );
 };

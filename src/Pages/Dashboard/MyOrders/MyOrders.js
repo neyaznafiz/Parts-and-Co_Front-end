@@ -66,7 +66,7 @@ const MyOrders = () => {
             <p className='text-2xl font-semibold py-5'> E-mail : {user.email}</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5' >
                 {
-                    orders.map(order => <DisplayMyOrders
+                    [...orders].reverse().map(order => <DisplayMyOrders
                         key={orders._id}
                         order={order}
                         handleOrderCancle={handleOrderCancle}

@@ -13,10 +13,10 @@ const CheckoutForm = ({ product }) => {
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
 
-    console.log(clientSecret);
+    // console.log(clientSecret);
 
     const { _id, totalPrice, email, name } = product
-    console.log(totalPrice)
+    // console.log(totalPrice)
 
     useEffect(() => {
         fetch('https://sheltered-inlet-94910.herokuapp.com/create-payment-intent', {
@@ -88,10 +88,12 @@ const CheckoutForm = ({ product }) => {
 
             // store payment info in database
             const payment = {
-                product: _id,
+                productId: _id,
+                productName: name,
+                email: email,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://sheltered-inlet-94910.herokuapp.com/myaddedorders/${_id}`, {
+            fetch(`http://localhost:5000/myaddedorders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

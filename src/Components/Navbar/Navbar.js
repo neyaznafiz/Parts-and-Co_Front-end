@@ -34,7 +34,9 @@ const Navbar = ({ children }) => {
                         </label>
                     )}
 
-                    <Link to='/' className="flex-1 px-2 mx-2 font-semibold text-3xl hover:text-stone-800">Parts & Co.</Link>
+                    <Link to='/' className="flex-1 px-2 mx-2 font-semibold text-3xl hover:text-stone-800">
+                    Parts & Co.
+                    </Link>
 
 
                     <div className="flex-none lg:hidden">
