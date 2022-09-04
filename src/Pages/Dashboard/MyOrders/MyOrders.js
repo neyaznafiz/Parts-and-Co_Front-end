@@ -62,7 +62,7 @@ const MyOrders = () => {
 
 
     return (
-        <div>
+        <div className='mx-6'>
             <p className='text-2xl font-semibold py-5'> E-mail : {user.email}</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5' >
                 {

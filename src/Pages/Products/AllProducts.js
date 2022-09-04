@@ -8,7 +8,7 @@ const AllProducts = () => {
    const [products]= useProducts()
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-20 p-3 lg:p-10'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-20 p-3 lg:p-10 mt-[90px]'>
             {
                 products.map(product => <DisplayAllProducts
                     key={product._id}

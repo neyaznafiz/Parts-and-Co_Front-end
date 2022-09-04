@@ -78,7 +78,7 @@ const Purchase = () => {
 
 
     return (
-        <div className='lg:h-screen lg:pt-16'>
+        <div className='lg:h-screen lg:pt-16 mt-[79px]'>
 
             {Id ?
                 <div className=' lg:flex'>

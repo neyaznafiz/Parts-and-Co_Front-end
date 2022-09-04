@@ -3,7 +3,7 @@ import Footer from '../Components/Shared/Footer';
 
 const Blog = () => {
     return (
-        <div className=''>
+        <div className='mt-[79px]'>
 
             <div className='py-10 text-center text-stone-800 text-2xl font-semibold'>
                 <p>Explore some Question and Answer</p>

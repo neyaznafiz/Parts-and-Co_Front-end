@@ -7,7 +7,7 @@ import Footer from '../Components/Shared/Footer';
 
 const MyPortfolio = () => {
     return (
-        <div>
+        <div className='mt-[79px]'>
 
             {/* info section */}
             <div className=''>
