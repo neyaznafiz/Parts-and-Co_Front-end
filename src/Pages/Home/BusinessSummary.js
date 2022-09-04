@@ -5,11 +5,11 @@ import { MdRateReview } from 'react-icons/md';
 
 const BusinessSummary = () => {
     return (
-        <div className='bg-stone-400 py-20 flex justify-center'>
+        <div className='bg-stone-300 py-20 flex justify-center'>
 
-            <div className="stats stats-vertical lg:stats-horizontal shadow bg-stone-300 lg:h-60 lg:w-full lg:mx-44">
+            <div className="stats stats-vertical lg:stats-horizontal bg-stone-300 lg:h-60 lg:w-full lg:mx-44">
 
-                <div className="stat">
+                <div className=" grid justify-center ">
                     <div className="stat-title text-xl font-semibold flex">Coustomers <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
 
                     <CountUp
@@ -23,7 +23,7 @@ const BusinessSummary = () => {
                     <div className="stat-desc text-xl">2012 - 2022</div>
                 </div>
 
-                <div className="stat">
+                <div className=" grid justify-center ">
                     <div className="stat-title text-xl font-semibold flex">New Coustomers <IoIosPeople className='mt-1 ml-2 text-2xl'/> </div>
 
                     <CountUp
@@ -36,7 +36,7 @@ const BusinessSummary = () => {
                     <div className="stat-desc  text-xl">↗︎ 400 (22%)</div>
                 </div>
 
-                <div className="stat">
+                <div className=" grid justify-center ">
                     <div className="stat-title text-xl font-semibold flex">Reviews <MdRateReview className='mt-2 ml-2 text-xl'/> </div>
 
                     <CountUp

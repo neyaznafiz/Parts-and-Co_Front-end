@@ -6,7 +6,7 @@ const EditProfile = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
 
     return (
-        <div className='w-full bg-stone-400'>
+        <div className='w-full'>
 
             <section className="vh-100" >
                 <div className="container h-100">
@@ -15,7 +15,7 @@ const EditProfile = () => {
                             <div className="card shadow-2xl bg-transparent " style={{ 'borderRadius': '25px' }}>
                                 <div className="card-body p-md-5">
                                     <div className="row justify-content-center">
-                                        <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-stone-800 ">
+                                        <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 ">
 
                                             <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4">ADD YOUR INFORMATION</p>
 
@@ -25,7 +25,7 @@ const EditProfile = () => {
                                                 <div className="form-control bg-transparent border-0">
 
                                                     <label className="label">
-                                                        <span className="label-text">CITY</span>
+                                                        <span className="label-text ">CITY</span>
                                                     </label>
                                                     <input type="text" placeholder="name" name="name" className="input input-bordered bg-transparent font-semibold text-lg"
                                                         {...register("city", {

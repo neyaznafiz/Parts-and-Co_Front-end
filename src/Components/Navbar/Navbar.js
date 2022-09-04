@@ -23,7 +23,7 @@ const Navbar = ({ children }) => {
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
-                <div className="w-full navbar px-10">
+                <div className="w-full flex items-center lg:px-20 bg-[#060624] text-white py-3">
 
                     {/* dashboard drawer button */}
                     {pathname.includes('dashboard') && (
@@ -34,7 +34,7 @@ const Navbar = ({ children }) => {
                         </label>
                     )}
 
-                    <Link to='/' className="flex-1 px-2 mx-2 font-semibold text-3xl hover:text-stone-800">
+                    <Link to='/' className="flex-1 px-2 mx-2 font-semibold text-3xl hover:text-white/70 uppercase">
                     Parts & Co.
                     </Link>
 
@@ -45,41 +45,41 @@ const Navbar = ({ children }) => {
                         </label>
                     </div>
 
-                    <div className="flex-none hidden lg:block ">
-                        <ul className="menu menu-horizontal">
+                    <div className="flex-none hidden lg:block">
+                        <ul className="flex gap-x-6 items-center">
                             {/* <!-- Navbar menu content here --> */}
 
                             <li>
-                                <Link to='/' className='rounded font-semibold hover:text-stone-800'>HOME</Link>
+                                <Link to='/' className='rounded font-semibold hover:text-white/70'>HOME</Link>
                             </li>
 
                             <li>
-                                <Link to='/allproducts' className='rounded font-semibold hover:text-stone-800'>ALL PRODUCTS</Link>
+                                <Link to='/allproducts' className='rounded font-semibold hover:text-white/70'>ALL PRODUCTS</Link>
                             </li>
 
                             <li>
-                                <Link to='/purchase' className='rounded font-semibold hover:text-stone-800'>PURCHASE</Link>
+                                <Link to='/purchase' className='rounded font-semibold hover:text-white/70'>PURCHASE</Link>
                             </li>
 
                             <li>
-                                <Link to='/dashboard/myprofile' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
+                                <Link to='/dashboard/myprofile' className='rounded font-semibold hover:text-white/70'>DASHBOARD</Link>
                             </li>
 
                             <li>
-                                <Link to='/blog' className='rounded font-semibold hover:text-stone-800'>BLOG</Link>
+                                <Link to='/blog' className='rounded font-semibold hover:text-white/70'>BLOG</Link>
                             </li>
                             <li>
-                                <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
+                                <Link to='/about' className='rounded font-semibold hover:text-white/70'>ABOUT</Link>
                             </li>
                             <li>
-                                <Link to='/myportfolio' className='rounded font-semibold hover:text-stone-800'>MY PORTFOLIO</Link>
+                                <Link to='/myportfolio' className='rounded font-semibold hover:text-white/70'>MY PORTFOLIO</Link>
                             </li>
 
                             <li>
                                 {!user ?
 
                                     <Link to='/login' className='cursor-pointer p-2'>
-                                        <span className='flex items-center font-semibold rounded hover:text-stone-800'> LOGIN </span>
+                                        <span className='flex items-center font-semibold rounded hover:text-white/70'> LOGIN </span>
                                     </Link>
                                     :
                                     <div className="dropdown dropdown-end">
@@ -102,7 +102,7 @@ const Navbar = ({ children }) => {
                                             <p className='text-center my-2 font-semibold'> {user?.email}</p>
 
                                             <Link to='/' className='cursor-pointer p-2 my-2'>
-                                                <span onClick={handleSignOut} className='flex items-center justify-center font-semibold outline rounded hover:text-stone-800'> LOG OUT</span>
+                                                <span onClick={handleSignOut} className='flex items-center justify-center font-semibold outline rounded hover:text-white/70'> LOG OUT</span>
                                             </Link>
 
                                         </ul>
@@ -128,42 +128,42 @@ const Navbar = ({ children }) => {
 
 
                     <li>
-                        <Link to='/' className='rounded font-semibold hover:text-stone-800'>HOME</Link>
+                        <Link to='/' className='rounded font-semibold hover:text-white/70'>HOME</Link>
                     </li>
 
                     <li>
-                        <Link to='/allproducts' className='rounded font-semibold hover:text-stone-800'>ALL PRODUCTS</Link>
+                        <Link to='/allproducts' className='rounded font-semibold hover:text-white/70'>ALL PRODUCTS</Link>
                     </li>
 
                     <li>
-                        <Link to='/purchase' className='rounded font-semibold hover:text-stone-800'>PURCHASE</Link>
+                        <Link to='/purchase' className='rounded font-semibold hover:text-white/70'>PURCHASE</Link>
                     </li>
 
                     <li>
-                        <Link to='/dashboard' className='rounded font-semibold hover:text-stone-800'>DASHBOARD</Link>
+                        <Link to='/dashboard' className='rounded font-semibold hover:text-white/70'>DASHBOARD</Link>
                     </li>
 
                     <li>
-                        <Link to='/blog' className='rounded font-semibold hover:text-stone-800'>BLOG</Link>
+                        <Link to='/blog' className='rounded font-semibold hover:text-white/70'>BLOG</Link>
                     </li>
 
                     <li>
-                        <Link to='/about' className='rounded font-semibold hover:text-stone-800'>ABOUT</Link>
+                        <Link to='/about' className='rounded font-semibold hover:text-white/70'>ABOUT</Link>
                     </li>
 
                     <li>
-                        <Link to='/myportfolio' className='rounded font-semibold hover:text-stone-800'>MY PORTFOLIO</Link>
+                        <Link to='/myportfolio' className='rounded font-semibold hover:text-white/70'>MY PORTFOLIO</Link>
                     </li>
 
                     <li>
                         {!user ?
 
                             <Link to='/login' className='cursor-pointer p-2'>
-                                <span className='flex items-center font-semibold rounded hover:text-stone-800'> LOGIN </span>
+                                <span className='flex items-center font-semibold rounded hover:text-white/70'> LOGIN </span>
                             </Link>
                             :
                             <Link to='/' className='cursor-pointer p-2'>
-                                <span onClick={handleSignOut} className='flex items-center font-semibold rounded hover:text-stone-800'> LOG OUT</span>
+                                <span onClick={handleSignOut} className='flex items-center font-semibold rounded hover:text-white/70'> LOG OUT</span>
                             </Link>
                         }
                     </li>

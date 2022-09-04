@@ -115,15 +115,15 @@ const CheckoutForm = ({ product }) => {
     return (
         <>
 
-            <form onSubmit={handleSubmit} className='py-4'>
+            <form onSubmit={handleSubmit} className='text-white/60'>
                 <CardElement
                     options={{
                         style: {
                             base: {
                                 fontSize: '16px',
-                                color: '#322d27',
+                                color: '#rgb(255 255 255 ',
                                 '::placeholder': {
-                                    color: '#322d27',
+                                    color: 'rgb(255 255 255 ',
                                 },
                             },
                             invalid: {
@@ -134,14 +134,14 @@ const CheckoutForm = ({ product }) => {
                 />
 
                 <div className='flex justify-end w-full mt-5'>
-                    <button type="submit" disabled={!stripe || !clientSecret} className="btn btn-outline px-16 rounded-full hover:bg-transparent hover:text-black"> PAY </button>
+                    <button type="submit" disabled={!stripe || !clientSecret} className="btn btn-outline px-16 rounded-full text-white/60 hover:bg-transparent hover:text-black"> PAY </button>
                 </div>
             </form>
 
             {
                 cardError && <p className='text-red-500'>{cardError}</p>
             }
-            {success && <div className='text-stone-800 '>
+            {success && <div className='text-white/80 '>
                 <p className='text-green-800'>{success}  </p>
                 <p className='text-lg '>Your Transaction Id : <span className="font-bold">{transactionId}</span> </p>
             </div>

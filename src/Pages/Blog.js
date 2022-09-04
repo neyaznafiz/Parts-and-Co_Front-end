@@ -3,7 +3,7 @@ import Footer from '../Components/Shared/Footer';
 
 const Blog = () => {
     return (
-        <div className='bg-stone-500'>
+        <div className=''>
 
             <div className='py-10 text-center text-stone-800 text-2xl font-semibold'>
                 <p>Explore some Question and Answer</p>

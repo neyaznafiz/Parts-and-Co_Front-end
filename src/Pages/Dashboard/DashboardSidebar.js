@@ -11,7 +11,7 @@ const DashboardSidebar = ({ children }) => {
     const [admin] = useAdmin(user)
 
     return (
-        <div className='bg-stone-400'>
+        <div className='bg-stone-300 text-gray-700'>
 
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />

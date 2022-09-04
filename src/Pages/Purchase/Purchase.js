@@ -78,7 +78,7 @@ const Purchase = () => {
 
 
     return (
-        <div className='bg-stone-400 lg:h-screen lg:pt-16'>
+        <div className='lg:h-screen lg:pt-16'>
 
             {Id ?
                 <div className=' lg:flex'>

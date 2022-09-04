@@ -15,8 +15,8 @@ const ReviewInHome = () => {
     }, [])
 
     return (
-        <div className='bg-stone-300 py-20'>
-            <div className=" border rounded-lg bg-transparent mx-20  ">
+        <div className=' py-20'>
+            <div className=" border rounded-lg bg-transparent lg:mx-20 ">
 
                 <p className='py-2 pl-3 text-lg font-semibold'>HERE IS OUR COUSTOMER REVIEW</p>
 

@@ -11,7 +11,7 @@ const MyPortfolio = () => {
 
             {/* info section */}
             <div className=''>
-                <div className="hero h-full py-20 bg-stone-400">
+                <div className="hero h-full py-20">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <img src={myimg} alt='' className='h-[400px] rounded-full' />
                         <div>
@@ -26,12 +26,12 @@ const MyPortfolio = () => {
 
             {/* link section */}
             <div className='grid justify-center'>
-                <div className='grid lg:flex justify-center gap-x-5 py-3 rounded-full bg-stone-500 w-[900px] -mt-9'>
+                <div className='grid lg:flex justify-center gap-x-5 py-3 rounded-full bg-stone-400 w-[1000px] -mt-9'>
                     <a href="https://dev.to/neyaznafiz" className='border-b border-stone-600 pr-3 flex w-[230px] text-stone-800 hover:text-stone-600'> <span className='flex gap-2 text-[20px] font-semibold'>EXPLORE MY BLOGS <AiOutlineArrowRight className='mt-1 ' /> </span> </a>
 
                     <p className='border-b border-stone-600 px-3 pb-1 text-center w-[270px] text-stone-800'> <span className='flex gap-2 text-[20px] font-semibold '>neyaznafiz@outlook.com </span> </p>
 
-                    <a href="https://github.com/neyaznafiz" className='border-b border-stone-600 pr-3 flex w-[260px] text-center text-stone-800 hover:text-stone-600'> <span className='flex gap-2 text-[20px] font-semibold'>EXPLORE MY PROJECTS <AiOutlineArrowRight className='mt-1 ' /> </span> </a>
+                    <a href="https://github.com/neyaznafiz" className='border-b border-stone-600 pr-3 flex w-[290px] text-center text-stone-800 hover:text-stone-600'> <span className='flex gap-2 text-[20px] font-semibold'>EXPLORE MY PROJECTS <AiOutlineArrowRight className='mt-1 ' /> </span> </a>
 
 
 
@@ -40,7 +40,7 @@ const MyPortfolio = () => {
 
             {/* project section */}
 
-            <div className='grid lg:flex justify-around gap-10 bg-stone-600 py-20 -mt-8'>
+            <div className='grid lg:flex justify-around gap-10 bg-stone-300 py-20 -mt-8'>
 
                 <div className="card w-96 bg-stone-200 shadow-2xl border">
                     <figure><img src={projectone} alt="fashion flavour" /></figure>

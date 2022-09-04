@@ -55,9 +55,9 @@ const AddaReview = () => {
                             <form onSubmit={handleSubmit(handleAddReview)} >
                                 <div className="form-control  bg-transparent border-0">
                                     <label className="label">
-                                        <span className="label-text">TYPE YOUR REVIEW</span>
+                                        <span className="label-text ">TYPE YOUR REVIEW</span>
                                     </label>
-                                    <textarea type="text" placeholder="yourReview" name="yourReview" className="input input-bordered lg:w-[410px] h-[200px] bg-transparent"
+                                    <textarea type="text" placeholder="TYPE REVIEW" name="yourReview" className="input input-bordered lg:w-[410px] h-[200px] bg-transparent"
                                         {...register("review", {
                                             required: {
                                                 value: true,

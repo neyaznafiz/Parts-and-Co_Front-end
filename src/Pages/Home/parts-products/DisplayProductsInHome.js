@@ -13,7 +13,7 @@ const DisplayProductsInHome = ({ product }) => {
     return (
         <div>
 
-            <div className="card lg:card-side shadow-2xl bg-transparent my-20">
+            <div className="card lg:card-side lg:shadow-2xl bg-transparent my-7 lg:my-20">
 
                 <figure><img src={img} alt="" className='lg:w-60 h-90' /></figure>
 
