@@ -96,7 +96,7 @@ const Navbar = ({ children }) => {
 
                                         </div>
 
-                                        <ul tabIndex="0" className="dropdown-content menu p-2  bg-stone-200 rounded-box mt-52">
+                                        <ul tabIndex="0" className="dropdown-content menu p-2 border-2 bg-[#060624] rounded-lg mt-4">
 
                                             <p className='text-center font-serif font-semibold'> {user?.displayName}</p>
                                             <p className='text-center my-2 font-semibold'> {user?.email}</p>
