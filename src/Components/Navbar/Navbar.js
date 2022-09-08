@@ -25,10 +25,10 @@ const Navbar = ({ children }) => {
     window.addEventListener("scroll", changeBg);
 
     const homeRoute = navbarBg
-        ? "navbar active_nav bg-[#060624] fixed z-[999] text-white lg:px-20 py-3"
-        : "navbar bg-transparent fixed text-white flex items-center z-[999] lg:px-20 py-3";
+        ? "navbar bg-[#060624] fixed z-[999] text-white lg:px-20 py-2"
+        : "navbar bg-transparent fixed text-white flex items-center z-[999] lg:px-20 py-2";
 
-    const anotherRoute = `fixed bg-[#060624] left-0 right-0 top-0 z-[999] shadow-lg lg:px-20 py-3`;
+    const anotherRoute = `fixed flex bg-[#060624] text-white items-center left-0 right-0 top-0 z-[999] shadow-lg lg:px-20 py-2`;
 
     // --------------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ const Navbar = ({ children }) => {
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                 <div className={` drawer-content flex flex-col`}>
                     {/* <!-- Navbar --> */}
-                    <div className={` ${routeName ? anotherRoute : homeRoute}`}>
+                    <div className={` ${routeName ? anotherRoute : homeRoute} bg-[#060624]`}>
                         
                     {/* w-full flex items-center lg:px-20 py-3 */}
 
