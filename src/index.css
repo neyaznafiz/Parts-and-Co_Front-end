@@ -16,6 +16,17 @@ code {
   width: 0px;
 }
 
+/* after scroll added class  */
+.active_nav {
+  transition: all 1s ease-in-out;
+  background-color:#333333 !important;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.678);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -17,7 +17,7 @@ const MyAddedItems = () => {
 
         const myAddedItems = async () => {
             const email = user.email;
-            const url = `https://sheltered-inlet-94910.herokuapp.com/myaddeditems?email=${email}`;
+            const url = `https://parts-and-co.onrender.com/myaddeditems?email=${email}`;
 
             try {
                 const { data } = await axios.get(url, {
@@ -46,7 +46,7 @@ const MyAddedItems = () => {
 
         if (proceed) {
 
-            const url = `https://sheltered-inlet-94910.herokuapp.com/myproduct/${id}`;
+            const url = `https://parts-and-co.onrender.com/myproduct/${id}`;
             fetch(url, {
                 method: "DELETE",
             })

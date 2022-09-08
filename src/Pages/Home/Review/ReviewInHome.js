@@ -8,7 +8,7 @@ const ReviewInHome = () => {
     // console.log(reviewsHome);
 
     useEffect(() => {
-        fetch('https://sheltered-inlet-94910.herokuapp.com/allreview')
+        fetch('https://parts-and-co.onrender.com/allreview')
             .then(res => res.json())
             .then(data => setReviewsHome(data))
 

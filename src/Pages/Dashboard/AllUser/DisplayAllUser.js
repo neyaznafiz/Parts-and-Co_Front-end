@@ -7,7 +7,7 @@ const DisplayAllUser = ({ user, refetch, handleDeleteUser }) => {
 
     const makeAdmin = () => {
 
-        fetch(`https://sheltered-inlet-94910.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://parts-and-co.onrender.com/user/admin/${email}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -9,7 +9,7 @@ import ReviewInHome from './Review/ReviewInHome';
 
 const Home = () => {
     return (
-        <div className='mt-[79px]'>
+        <div className=''>
            <Banner></Banner>
            <ProductsInHome></ProductsInHome>
            <BusinessSummary></BusinessSummary>

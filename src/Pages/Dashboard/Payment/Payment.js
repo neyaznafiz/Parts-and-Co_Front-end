@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L0gDbJT4xjXTU74z66wNjkphxp6HCRQGImcS
 const Payment = () => {
   const { Id } = useParams()
 
-  const url = `https://sheltered-inlet-94910.herokuapp.com/payment/${Id}`
+  const url = `https://parts-and-co.onrender.com/payment/${Id}`
 
   const { data: product, isLoading } = useQuery(['payment', Id], () => fetch(url, {
     method: 'GET',

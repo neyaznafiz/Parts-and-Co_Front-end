@@ -9,7 +9,7 @@ const AllUsers = () => {
 
     const [user, setUser] = useAuthState(auth)
 
-    const { data, isLoading, refetch } = useQuery('users', () => fetch('https://sheltered-inlet-94910.herokuapp.com/users', {
+    const { data, isLoading, refetch } = useQuery('users', () => fetch('https://parts-and-co.onrender.com/users', {
         method: "GET",
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -26,7 +26,7 @@ const AllUsers = () => {
 
         if (proceed) {
 
-            const url = `https://sheltered-inlet-94910.herokuapp.com/user/${id}`;
+            const url = `https://parts-and-co.onrender.com/user/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
@@ -37,7 +37,7 @@ const AllUsers = () => {
                         (userCollection) => userCollection._id !== id
                     );
                     setUser(remaining);
-                
+
                 });
         }
     };
@@ -48,7 +48,7 @@ const AllUsers = () => {
     // useEffect(() => {
     //     // console.log(user.email);
 
-    //     fetch('https://sheltered-inlet-94910.herokuapp.com/users')
+    //     fetch('https://parts-and-co.onrender.com/users')
     //         .then(res => res.json())
     //         .then(data => setUsers(data))
 

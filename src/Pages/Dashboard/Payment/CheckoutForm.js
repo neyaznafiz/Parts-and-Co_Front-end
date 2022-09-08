@@ -19,7 +19,7 @@ const CheckoutForm = ({ product }) => {
     // console.log(totalPrice)
 
     useEffect(() => {
-        fetch('https://sheltered-inlet-94910.herokuapp.com/create-payment-intent', {
+        fetch('https://parts-and-co.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

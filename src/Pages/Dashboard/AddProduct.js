@@ -12,7 +12,7 @@ const AddProduct = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const { data: product, isLoading } = useQuery('product', () => fetch('https://sheltered-inlet-94910.herokuapp.com/product').then(res => res.json()))
+    const { data: product, isLoading } = useQuery('product', () => fetch('https://parts-and-co.onrender.com/product').then(res => res.json()))
 
     const imageStorageKey = 'da7a354ac5b93a961b8fece49f261619'
 
@@ -43,7 +43,7 @@ const AddProduct = () => {
                         img: image
                     }
                     // send to database
-                    fetch('https://sheltered-inlet-94910.herokuapp.com/product', {
+                    fetch('https://parts-and-co.onrender.com/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

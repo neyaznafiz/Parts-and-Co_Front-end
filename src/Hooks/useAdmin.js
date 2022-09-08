@@ -9,7 +9,7 @@ const useAdmin = user => {
 
         const email = user?.email
         if (email) {
-            fetch(`https://sheltered-inlet-94910.herokuapp.com/admin/${email}`, {
+            fetch(`https://parts-and-co.onrender.com/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

@@ -26,7 +26,7 @@ const Purchase = () => {
 
     useEffect(() => {
         if (Id) {
-            const url = `https://sheltered-inlet-94910.herokuapp.com/singleProduct/${Id}`
+            const url = `https://parts-and-co.onrender.com/singleProduct/${Id}`
             console.log(url);
 
             fetch(url)
@@ -54,7 +54,7 @@ const Purchase = () => {
         }
 
 
-        fetch('https://sheltered-inlet-94910.herokuapp.com/orders', {
+        fetch('https://parts-and-co.onrender.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

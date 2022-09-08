@@ -20,7 +20,7 @@ const AddaReview = () => {
             review: data.review
         }
 
-        fetch('https://sheltered-inlet-94910.herokuapp.com/review', {
+        fetch('https://parts-and-co.onrender.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -6,7 +6,7 @@ const useProducts = () => {
 
     useEffect(() => {
 
-        fetch('https://sheltered-inlet-94910.herokuapp.com/product')
+        fetch('https://parts-and-co.onrender.com/product')
             .then(res => res.json())
             .then(data => setProducts(data))
 

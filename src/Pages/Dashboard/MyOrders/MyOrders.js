@@ -14,14 +14,14 @@ const MyOrders = () => {
     const navigate = useNavigate()
     useEffect(() => {
 
-        const {_id} = orders
+        const { _id } = orders
         console.log(_id);
 
         const myaddedOrders = async () => {
             const email = user.email;
 
             try {
-                const { data } = await axios.get(`https://sheltered-inlet-94910.herokuapp.com/myaddedorders?email=${email}`, {
+                const { data } = await axios.get(`https://parts-and-co.onrender.com/myaddedorders?email=${email}`, {
                     headers: {
                         authorization: ` Bearer ${localStorage.getItem('accessToken')}`
                     }
