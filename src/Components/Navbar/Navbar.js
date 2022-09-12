@@ -95,9 +95,9 @@ const Navbar = ({ children }) => {
                                 <li>
                                     <Link to='/about' className='rounded font-semibold hover:text-white/70'>ABOUT</Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <Link to='/myportfolio' className='rounded font-semibold hover:text-white/70'>MY PORTFOLIO</Link>
-                                </li>
+                                </li> */}
 
                                 <li>
                                     {!user ?
@@ -175,9 +175,9 @@ const Navbar = ({ children }) => {
                             <Link to='/about' className='rounded font-semibold hover:text-white/70'>ABOUT</Link>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <Link to='/myportfolio' className='rounded font-semibold hover:text-white/70'>MY PORTFOLIO</Link>
-                        </li>
+                        </li> */}
 
                         <li>
                             {!user ?
