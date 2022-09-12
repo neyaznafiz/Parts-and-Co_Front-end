@@ -26,7 +26,7 @@ const Navbar = ({ children }) => {
 
     const homeRoute = navbarBg
         ? "navbar bg-[#060624] fixed z-[999] text-white lg:px-20 py-3"
-        : "navbar bg-transparent fixed text-white flex items-center z-[999] lg:px-20 py-3";
+        : "navbar  bg-[#060624] fixed text-white flex items-center z-[999] lg:px-20 py-3";
 
     const anotherRoute = `fixed flex bg-[#060624] text-white items-center left-0 right-0 top-0 z-[999] shadow-lg lg:px-20 py-3`;
 
