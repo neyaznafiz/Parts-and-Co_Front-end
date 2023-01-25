@@ -21,7 +21,7 @@ const MyOrders = () => {
 
       try {
         const { data } = await axios.get(
-          `https://parts-and-co-server-production.up.railway.app/myaddedorders?email=${email}`,
+          `https://pac-server.vercel.app/myaddedorders?email=${email}`,
           {
             headers: {
               authorization: ` Bearer ${localStorage.getItem("accessToken")}`,

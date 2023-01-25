@@ -25,7 +25,7 @@ const Purchase = () => {
 
   useEffect(() => {
     if (Id) {
-      const url = `https://parts-and-co-server-production.up.railway.app/singleProduct/${Id}`;
+      const url = `https://pac-server.vercel.app/singleProduct/${Id}`;
       console.log(url);
 
       fetch(url)
@@ -47,7 +47,7 @@ const Purchase = () => {
       address: data.address,
     };
 
-    fetch("https://parts-and-co-server-production.up.railway.app/orders", {
+    fetch("https://pac-server.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -6,7 +6,7 @@ const useProducts = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://parts-and-co-server-production.up.railway.app/product")
+    fetch("https://pac-server.vercel.app/product")
       .then((res) => res.json())
       .then((data) => setProducts(data));
     setLoading(false);

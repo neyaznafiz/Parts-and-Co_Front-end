@@ -13,7 +13,7 @@ const MyAddedItems = () => {
   useEffect(() => {
     const myAddedItems = async () => {
       const email = user.email;
-      const url = `https://parts-and-co-server-production.up.railway.app/myaddeditems?email=${email}`;
+      const url = `https://pac-server.vercel.app/myaddeditems?email=${email}`;
 
       try {
         const { data } = await axios.get(url, {
@@ -37,7 +37,7 @@ const MyAddedItems = () => {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
-      const url = `https://parts-and-co-server-production.up.railway.app/myproduct/${id}`;
+      const url = `https://pac-server.vercel.app/myproduct/${id}`;
       fetch(url, {
         method: "DELETE",
       })

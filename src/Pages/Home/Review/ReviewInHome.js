@@ -6,7 +6,7 @@ const ReviewInHome = () => {
   // console.log(reviewsHome);
 
   useEffect(() => {
-    fetch("https://parts-and-co-server-production.up.railway.app/allreview")
+    fetch("https://pac-server.vercel.app/allreview")
       .then((res) => res.json())
       .then((data) => setReviewsHome(data));
   }, []);

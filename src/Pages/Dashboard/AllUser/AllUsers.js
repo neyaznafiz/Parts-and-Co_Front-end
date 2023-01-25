@@ -9,7 +9,7 @@ const AllUsers = () => {
   const [user, setUser] = useAuthState(auth);
 
   const { data, isLoading, refetch } = useQuery("users", () =>
-    fetch("https://parts-and-co-server-production.up.railway.app/users", {
+    fetch("https://pac-server.vercel.app/users", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -25,7 +25,7 @@ const AllUsers = () => {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
-      const url = `https://parts-and-co-server-production.up.railway.app/user/${id}`;
+      const url = `https://pac-server.vercel.app/user/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -46,7 +46,7 @@ const AllUsers = () => {
   // useEffect(() => {
   //     // console.log(user.email);
 
-  //     fetch('https://parts-and-co-server-production.up.railway.app/users')
+  //     fetch('https://pac-server.vercel.app/users')
   //         .then(res => res.json())
   //         .then(data => setUsers(data))
 

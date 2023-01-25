@@ -17,17 +17,14 @@ const CheckoutForm = ({ product }) => {
   // console.log(totalPrice)
 
   useEffect(() => {
-    fetch(
-      "https://parts-and-co-server-production.up.railway.app/create-payment-intent",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({ totalPrice }),
-      }
-    )
+    fetch("https://pac-server.vercel.app/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ totalPrice }),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {

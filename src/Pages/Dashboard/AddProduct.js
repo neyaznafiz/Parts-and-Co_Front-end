@@ -17,9 +17,7 @@ const AddProduct = () => {
   } = useForm();
 
   const { data: product, isLoading } = useQuery("product", () =>
-    fetch("https://parts-and-co-server-production.up.railway.app/product").then(
-      (res) => res.json()
-    )
+    fetch("https://pac-server.vercel.app/product").then((res) => res.json())
   );
 
   const imageStorageKey = "da7a354ac5b93a961b8fece49f261619";
@@ -50,17 +48,14 @@ const AddProduct = () => {
             img: image,
           };
           // send to database
-          fetch(
-            "https://parts-and-co-server-production.up.railway.app/product",
-            {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
-              },
-              body: JSON.stringify(product),
-            }
-          )
+          fetch("https://pac-server.vercel.app/product", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(product),
+          })
             .then((res) => res.json())
             .then((addedProduct) => {
               console.log(addedProduct);

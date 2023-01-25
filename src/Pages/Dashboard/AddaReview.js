@@ -21,7 +21,7 @@ const AddaReview = () => {
       review: data.review,
     };
 
-    fetch("https://parts-and-co-server-production.up.railway.app/review", {
+    fetch("https://pac-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
